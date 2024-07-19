@@ -1,4 +1,4 @@
-# React Vite Template with TypeScript, TailwindCSS, ESLint, Prettier, Docker, and PWA Support 🚀
+# React Vite Template with TypeScript, TailwindCSS, ESLint, Prettier, Docker, and PWA Support
 
 This is a React template created with Vite and configured with TypeScript, TailwindCSS, ESLint, Prettier, Docker, and PWA support using Workbox. It is ready to be deployed on GitHub Pages and is set up to enforce code quality and styling guidelines.
 
@@ -52,7 +52,7 @@ This will start the development server at `http://localhost:3000`.
 
 In the project directory, you can run:
 
-### `npm run dev` or `yarn dev`
+### `npm run start` or `yarn start`
 
 Runs the app in the development mode. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
@@ -60,13 +60,25 @@ Runs the app in the development mode. Open [http://localhost:3000](http://localh
 
 Builds the app for production to the `dist` folder.
 
+### `npm run serve` or `yarn serve`
+
+Serves the built app in the `dist` folder.
+
 ### `npm run lint` or `yarn lint`
 
 Lints the project using ESLint.
 
-### `npm run format` or `yarn format`
+### `npm run lint:fix` or `yarn lint:fix`
 
-Formats the code using Prettier.
+Lints the project and automatically fixes problems using ESLint.
+
+### `npm run test` or `yarn test`
+
+Runs the tests using Jest.
+
+### `npm run coverage` or `yarn coverage`
+
+Runs the tests and generates a coverage report.
 
 ### `npm run deploy` or `yarn deploy`
 
