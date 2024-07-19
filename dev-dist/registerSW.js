@@ -1,1 +1,0 @@
-if('serviceWorker' in navigator) navigator.serviceWorker.register('/react-vite-template/dev-sw.js?dev-sw', { scope: '/react-vite-template/', type: 'classic' })
