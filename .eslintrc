@@ -1,0 +1,49 @@
+{
+    "root": true,
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true,
+        },
+        "ecmaVersion": "latest",
+        "sourceType": "module",
+        "project": "./tsconfig.json",
+    },
+    "env": {
+        "browser": true,
+        "commonjs": true,
+        "es6": true,
+        "jest": true,
+        "node": true,
+    },
+    "plugins": ["react", "import", "jsx-a11y", "prettier", "@typescript-eslint"],
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:@typescript-eslint/recommended",
+        "airbnb",
+        "plugin:import/errors",
+        "plugin:jsx-a11y/recommended",
+        "plugin:prettier/recommended",
+    ],
+    "settings": {
+        "react": {
+            "version": "detect",
+        },
+    },
+    "ignorePatterns": ["tailwind.config.js", "postcss.config.js", "vite.config.js"],
+    "rules": {
+        "indent": ["warn", 4],
+        "quotes": ["warn", "double"],
+        "react/prop-types": "off",
+        "react/jsx-uses-vars": "warn",
+        "react/react-in-jsx-scope": "off",
+        "react/jsx-uses-react": "off",
+        "no-unused-vars": "warn",
+        "no-console": "off",
+        "react/jsx-filename-extension": "off",
+        "react/jsx-no-bind": "off",
+        "jsx-a11y/no-autofocus": "off",
+        "import/no-extraneous-dependencies": "off",
+    },
+}
