@@ -88,6 +88,7 @@ Deploys the app to GitHub Pages.
 
 This project uses the following ESLint configurations:
 
+-   `eslint:recommended`
 -   `plugin:react/recommended`
 -   `plugin:@typescript-eslint/recommended`
 -   `airbnb`
