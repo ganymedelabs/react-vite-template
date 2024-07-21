@@ -11,6 +11,7 @@ This is a React template created with Vite and configured with TypeScript, Tailw
 -   [Docker Configuration](#docker-configuration)
 -   [PWA Configuration](#pwa-configuration)
 -   [Deployment](#deployment)
+-   [Repository Configuration](#repository-configuration)
 -   [License](#license)
 
 ## Getting Started
@@ -126,6 +127,87 @@ yarn deploy
 ```
 
 Make sure to update the `homepage` field in `package.json` to match your repository URL.
+
+## Repository Configuration
+
+To make this template work for your repository, you need to update a few configuration files:
+
+1. **.env Files**
+    - Update the `.env.development` and `.env.production` files to reflect your repository's URL. Ensure that `VITE_PUBLIC_URL` matches your local development server URL in `.env.development` and your GitHub Pages URL in `.env.production`.
+
+    **.env.development**
+
+    ```env
+    VITE_PUBLIC_URL=http://localhost:3000/your-repo-name
+    ```
+
+    **.env.production**
+
+    ```env
+    VITE_PUBLIC_URL=https://your-username.github.io/your-repo-name
+    ```
+
+2. **manifest.json**
+    - Change all instances of `"react-vite-template"` to the name of your repository. If your GitHub Pages URL is `https://your-username.github.io/`, leave the `"react-vite-template"` string as `"/"`.
+
+    ```json
+    "icons": [
+        {
+            "src": "/your-repo-name/favicon.ico",
+            "sizes": "64x64 32x32 24x24 16x16",
+            "type": "image/x-icon"
+        }
+    ],
+    "start_url": "/your-repo-name/",
+    "scope": "/your-repo-name/",
+    ```
+
+3. **index.html**
+    - Change the `href` value of `<link rel="canonical" href="https://discontinuedlabs.github.io/react-vite-template/" />` to the URL of your GitHub Pages.
+
+    ```html
+    <link rel="canonical" href="https://your-username.github.io/your-repo-name/" />
+    ```
+
+    - Replace all instances of `"react-vite-template"` in `href` values to your repository name. If your GitHub Pages URL is `https://your-username.github.io/`, leave the `"react-vite-template"` string as `"/"`.
+
+    ```html
+    <link rel="apple-touch-icon" sizes="180x180" href="/your-repo-name/images/favicons/apple-touch-icon.png" />
+    ```
+
+Additionally, while not required for the template to work, it's a good idea to change the following parts in the `package.json` as needed:
+
+```json
+"home-page": "https://discontinuedlabs.github.io/react-vite-template/",
+"name": "react-vite-template",
+"author": "discontinuedlabs",
+"description": "This is a React template created with Vite and configured with TypeScript, TailwindCSS, ESLint, Prettier, Docker, and PWA support using Workbox. It is ready to be deployed on GitHub Pages and is set up to enforce code quality and styling guidelines.",
+"license": "MIT",
+"version": "1.0.0",
+"private": true,
+"repository": {
+    "type": "git",
+    "url": "https://github.com/discontinuedlabs/react-vite-template.git"
+},
+"keywords": [
+    "PWA",
+    "Progressive Web App",
+    "Open Source",
+    "MIT",
+    "React",
+    "Vite",
+    "TypeScript",
+    "GitHub Pages",
+    "Docker",
+    "Tailwind CSS",
+    "ESLint",
+    "Prettier",
+    "Template"
+],
+"bugs": {
+    "url": "https://github.com/discontinuedlabs/react-vite-template/issues"
+}
+```
 
 ## License
 
