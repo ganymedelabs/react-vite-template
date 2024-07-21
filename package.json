@@ -4,7 +4,7 @@
     "author": "discontinuedlabs",
     "description": "This is a React template created with Vite and configured with TypeScript, TailwindCSS, ESLint, Prettier, Docker, and PWA support using Workbox. It is ready to be deployed on GitHub Pages and is set up to enforce code quality and styling guidelines.",
     "license": "MIT",
-    "version": "0.1.0",
+    "version": "1.0.0",
     "private": true,
     "repository": {
         "type": "git",
