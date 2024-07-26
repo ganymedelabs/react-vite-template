@@ -1,7 +1,6 @@
 import { defineConfig, loadEnv } from "vite";
 import react from "@vitejs/plugin-react";
 import { VitePWA } from "vite-plugin-pwa";
-import manifest from "./manifest.json";
 
 export default defineConfig(({ mode }) => {
     const { VITE_PUBLIC_URL } = loadEnv(mode, process.cwd());
@@ -21,14 +20,9 @@ export default defineConfig(({ mode }) => {
             react(),
             VitePWA({
                 registerType: "autoUpdate",
-                workbox: {
-                    clientsClaim: true,
-                    skipWaiting: true,
-                },
                 devOptions: {
                     enabled: true,
                 },
-                manifest,
             }),
         ],
     };
