@@ -126,28 +126,34 @@ npm run deploy
 yarn deploy
 ```
 
-Make sure to update the `homepage` field in `package.json` to match your repository URL.
-
 ## Repository Configuration
 
 To make this template work for your repository, you need to update a few configuration files:
 
-1. **.env Files**
-    - Update the `.env.development` and `.env.production` files to reflect your repository's URL. Ensure that `VITE_PUBLIC_URL` matches your local development server URL in `.env.development` and your GitHub Pages URL in `.env.production`.
+1. **vite.config.js**
 
-    **.env.development**
+    - Change the `base` value to the name of your repository.
 
-    ```env
-    VITE_PUBLIC_URL=http://localhost:3000/your-repo-name
+    ```json
+    "base": "/your-repo-name/"
     ```
 
-    **.env.production**
+2. **index.html**
 
-    ```env
-    VITE_PUBLIC_URL=https://your-username.github.io/your-repo-name
+    - Change the `href` value of `<link rel="canonical" href="https://discontinuedlabs.github.io/react-vite-template/" />` to the URL of your GitHub Pages.
+
+    ```html
+    <link rel="canonical" href="https://your-username.github.io/your-repo-name/" />
     ```
 
-2. **manifest.json**
+    - Replace all instances of `"react-vite-template"` in `href` values to your repository name. If your GitHub Pages URL is `https://your-username.github.io/`, leave the `"react-vite-template"` string as `"/"`.
+
+    ```html
+    <link rel="apple-touch-icon" sizes="180x180" href="/your-repo-name/images/favicons/apple-touch-icon.png" />
+    ```
+
+3. **public/manifest.json**
+
     - Change all instances of `"react-vite-template"` to the name of your repository. If your GitHub Pages URL is `https://your-username.github.io/`, leave the `"react-vite-template"` string as `"/"`.
 
     ```json
@@ -160,19 +166,6 @@ To make this template work for your repository, you need to update a few configu
     ],
     "start_url": "/your-repo-name/",
     "scope": "/your-repo-name/",
-    ```
-
-3. **index.html**
-    - Change the `href` value of `<link rel="canonical" href="https://discontinuedlabs.github.io/react-vite-template/" />` to the URL of your GitHub Pages.
-
-    ```html
-    <link rel="canonical" href="https://your-username.github.io/your-repo-name/" />
-    ```
-
-    - Replace all instances of `"react-vite-template"` in `href` values to your repository name. If your GitHub Pages URL is `https://your-username.github.io/`, leave the `"react-vite-template"` string as `"/"`.
-
-    ```html
-    <link rel="apple-touch-icon" sizes="180x180" href="/your-repo-name/images/favicons/apple-touch-icon.png" />
     ```
 
 Additionally, while not required for the template to work, it's a good idea to change the following parts in the `package.json` as needed:

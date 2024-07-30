@@ -1,15 +1,14 @@
-import { defineConfig, loadEnv } from "vite";
+import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import { VitePWA } from "vite-plugin-pwa";
 
-export default defineConfig(({ mode }) => {
-    const { VITE_PUBLIC_URL } = loadEnv(mode, process.cwd());
+export default defineConfig(() => {
     return {
         server: {
             port: 3000,
         },
 
-        base: VITE_PUBLIC_URL,
+        base: "/react-vite-template/",
 
         build: {
             outDir: "build",
