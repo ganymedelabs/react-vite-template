@@ -1,18 +1,18 @@
-import React from "react";
+import React, { forwardRef } from "react";
 
-/* eslint-disable react/jsx-props-no-spreading, react/require-default-props */
+/* eslint-disable react/jsx-props-no-spreading */
 
-interface ImageProps {
-    className?: string;
-    src: string;
-    alt: string;
-}
+interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {}
 
-export default function Image({ className = "", src, alt, ...rest }: ImageProps): React.JSX.Element {
+const Image = forwardRef<HTMLImageElement, ImageProps>((props, ref) => {
+    const { className = "", src, alt, ...rest } = props;
+
     return (
         <picture>
             <source type="image/webp" />
-            <img className={className} loading="lazy" src={src} alt={alt} {...rest} />
+            <img className={className} ref={ref} loading="lazy" src={src} alt={alt} {...rest} />
         </picture>
     );
-}
+});
+
+export default Image;
