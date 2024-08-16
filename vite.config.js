@@ -14,16 +14,21 @@ export default defineConfig(() => {
         build: {
             outDir: "build",
             assetsDir: ".",
+            rollupOptions: {
+                output: {
+                    entryFileNames: "index.js",
+                    assetFileNames: "index.css",
+                },
+            },
         },
 
         plugins: [
             react(),
             eslint(),
             VitePWA({
-                registerType: "autoUpdate",
-                strategies: "injectManifest",
-                srcDir: "src",
-                filename: "sw.js",
+                devOptions: {
+                    enabled: true,
+                },
             }),
         ],
     };
