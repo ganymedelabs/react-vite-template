@@ -74,8 +74,8 @@
         "build": "vite build",
         "serve": "vite preview",
         "test": "jest",
-        "lint": "npx eslint .",
-        "lint:fix": "npx eslint --fix .",
+        "lint": "eslint .",
+        "lint:fix": "eslint --fix .",
         "coverage": "npm test --coverage --watchAll --collectCoverageFrom='src/**/*.{js,ts,jsx,tsx}'"
     },
     "eslintConfig": {
