@@ -1,12 +1,12 @@
 # React Vite Template with TypeScript, TailwindCSS, ESLint, Prettier, Docker, and PWA Support
 
-![React version](https://img.shields.io/badge/React-18.3.1-61DAFB)
-![Vite version](https://img.shields.io/badge/Vite-5.3.4-646CFF)
-![TailwindCSS version](https://img.shields.io/badge/TailwindCSS-3.4.6-06B6D4)
-![TypeScript version](https://img.shields.io/badge/TypeScript-5.5.3-3178C6)
-![ESLint version](https://img.shields.io/badge/ESLint-8.57.0-4B32C3)
-![Prettier version](https://img.shields.io/badge/Prettier-3.3.2-F7B93E)
-![PWA Support](https://img.shields.io/badge/PWA-Support-4FC08D)
+![React version](https://img.shields.io/badge/React-18.3.1-61DAFB?logo=react&logoColor=white)
+![Vite version](https://img.shields.io/badge/Vite-5.3.4-646CFF?logo=vite&logoColor=white)
+![TailwindCSS version](https://img.shields.io/badge/TailwindCSS-3.4.6-06B6D4?logo=tailwindcss&logoColor=white)
+![TypeScript version](https://img.shields.io/badge/TypeScript-5.5.3-3178C6?logo=typescript&logoColor=white)
+![ESLint version](https://img.shields.io/badge/ESLint-8.57.0-4B32C3?logo=eslint&logoColor=white)
+![Prettier version](https://img.shields.io/badge/Prettier-3.3.2-F7B93E?logo=prettier&logoColor=white)
+![PWA Support](https://img.shields.io/badge/PWA-Support-4FC08D?logo=progressive-web-app&logoColor=white)
 ![GitHub Pages](https://img.shields.io/github/deployments/discontinuedlabs/react-vite-template/github-pages?label=GitHub%20Pages&color=brightgreen)
 
 This is a React template created with Vite and configured with TypeScript, TailwindCSS, ESLint, Prettier, Docker, and PWA support using Workbox. It is ready to be deployed on GitHub Pages and is set up to enforce code quality and styling guidelines.
