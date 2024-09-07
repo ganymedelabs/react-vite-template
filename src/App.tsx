@@ -3,9 +3,9 @@ import Home from "./Home.tsx";
 import NotFoundPage from "./NotFoundPage.tsx";
 
 export default function App() {
-    console.log("test 2");
+    console.log("test 3");
     return (
-        <main className="test-test h-screen bg-black text-gray-400">
+        <main className="h-screen bg-black text-yellow-100">
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="*" element={<NotFoundPage />} />
