@@ -17,7 +17,7 @@ export default defineConfig(() => {
             rollupOptions: {
                 output: {
                     entryFileNames: "index.js",
-                    assetFileNames: "[name]-[hash][extname]",
+                    assetFileNames: "[name]-[hash][extname]", // "[name]-[hash].[ext]",
                 },
             },
         },
@@ -38,6 +38,11 @@ export default defineConfig(() => {
                 ],
                 devOptions: {
                     enabled: true,
+                },
+                workbox: {
+                    cleanupOutdatedCaches: true,
+                    clientsClaim: true,
+                    skipWaiting: true,
                 },
             }),
         ],
