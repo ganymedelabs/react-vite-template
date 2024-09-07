@@ -17,12 +17,7 @@ export default defineConfig(() => {
             rollupOptions: {
                 output: {
                     entryFileNames: "index.js",
-                    assetFileNames: (assetInfo) => {
-                        if (assetInfo.name.endsWith(".css")) {
-                            return `[name][contenthash].css`;
-                        }
-                        return assetInfo.name;
-                    },
+                    assetFileNames: "[name][extname]",
                 },
             },
         },
