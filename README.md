@@ -144,10 +144,18 @@ To make this template work for your repository, you need to update a few configu
     - Change the `base` value to the name of your repository.
 
     ```json
-    "base": "/your-repo-name/"
+    "base": "/your-repo-name"
     ```
 
-2. **index.html**
+2. **src/index.tsx**
+
+    - Change the `basename` value of `Router` to the name of your repository.
+
+    ```jsx
+    <Router basename="/your-repo-name">
+    ```
+
+3. **index.html**
 
     - Change the `href` value of `<link rel="canonical" href="https://discontinuedlabs.github.io/react-vite-template/" />` to the URL of your GitHub Pages.
 
@@ -161,7 +169,7 @@ To make this template work for your repository, you need to update a few configu
     <link rel="apple-touch-icon" sizes="180x180" href="/your-repo-name/images/favicons/apple-touch-icon.png" />
     ```
 
-3. **public/manifest.json**
+4. **public/manifest.json**
 
     - Change all instances of `"react-vite-template"` to the name of your repository. If your GitHub Pages URL is `https://your-username.github.io/`, leave the `"react-vite-template"` string as `"/"`.
 
