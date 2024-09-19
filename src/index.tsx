@@ -12,10 +12,12 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     </React.StrictMode>
 );
 
+console.log(import.meta.env.VITE_PUBLIC_URL);
+
 if ("serviceWorker" in navigator) {
     window.addEventListener("load", () => {
         navigator.serviceWorker
-            .register("/service-worker.js")
+            .register(`${import.meta.env.VITE_PUBLIC_URL}/service-worker.js`)
             .then((registration) => {
                 console.log("Service Worker registered: ", registration);
             })

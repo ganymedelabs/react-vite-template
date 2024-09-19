@@ -61,7 +61,7 @@ export default function Home() {
                     ref={logoRef}
                     style={imageStyle}
                     className={`ml-auto mr-auto block h-48 w-48 ${isSpinning ? "animate-spin-infinite" : ""}`}
-                    src="images/logo.png"
+                    src={`${import.meta.env.VITE_PUBLIC_URL}/images/logo.png`}
                     alt="Discontinued Labs Logo"
                 />
                 <h1 className="text-center">React Vite Template</h1>
