@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>React Vite Template</title>
+        <script type="text/javascript">
+            // MIT License
+            // https://github.com/rafgraph/spa-github-pages
+            // This script modifies the current URL by converting the path and query string into a query string format.
+            // It then redirects the browser to a new URL that contains only the query string and hash fragment.
+            // For example: https://www.foo.tld/one/two?a=b&c=d#qwe becomes
+            //              https://www.foo.tld/?/one/two&a=b~and~c=d#qwe
+            // Note: The 404.html file must be at least 512 bytes to work with Internet Explorer (currently it exceeds 512 bytes).
+            //
+            // If you're using a Project Pages site without a custom domain, set pathSegmentsToKeep to 1
+            // (enterprise users may need a higher value). This ensures only the route portion of the path is replaced,
+            // keeping the app’s actual directory intact.
+            // For example: https://username.github.io/repo-name/one/two?a=b&c=d#qwe becomes
+            //              https://username.github.io/repo-name/?/one/two&a=b~and~c=d#qwe
+            // If you're using a custom domain, leave pathSegmentsToKeep as 0.
+            var pathSegmentsToKeep = 0;
+
+            var l = window.location;
+            l.replace(
+                l.protocol +
+                    "//" +
+                    l.hostname +
+                    (l.port ? ":" + l.port : "") +
+                    l.pathname
+                        .split("/")
+                        .slice(0, 1 + pathSegmentsToKeep)
+                        .join("/") +
+                    "/?/" +
+                    l.pathname.slice(1).split("/").slice(pathSegmentsToKeep).join("/").replace(/&/g, "~and~") +
+                    (l.search ? "&" + l.search.slice(1).replace(/&/g, "~and~") : "") +
+                    l.hash
+            );
+        </script>
+    </head>
+    <body></body>
+</html>
