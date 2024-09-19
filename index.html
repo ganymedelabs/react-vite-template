@@ -14,6 +14,35 @@
         <link rel="icon" type="image/png" sizes="32x32" href="/react-vite-template/images/favicons/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/react-vite-template/images/favicons/favicon-16x16.png" />
         <meta name="theme-color" content="#000000" />
+
+        <script type="text/javascript">
+            // MIT License
+            // https://github.com/rafgraph/spa-github-pages
+            // This script modifies the current URL by converting the path and query string into a query string format.
+            // It then redirects the browser to a new URL that contains only the query string and hash fragment.
+            // For example: https://www.foo.tld/one/two?a=b&c=d#qwe becomes
+            //              https://www.foo.tld/?/one/two&a=b~and~c=d#qwe
+            // Note: The 404.html file must be at least 512 bytes to work with Internet Explorer (currently it exceeds 512 bytes).
+            //
+            // If you're using a Project Pages site without a custom domain, set pathSegmentsToKeep to 1
+            // (enterprise users may need a higher value). This ensures only the route portion of the path is replaced,
+            // keeping the app’s actual directory intact.
+            // For example: https://username.github.io/repo-name/one/two?a=b&c=d#qwe becomes
+            //              https://username.github.io/repo-name/?/one/two&a=b~and~c=d#qwe
+            // If you're using a custom domain, leave pathSegmentsToKeep as 0.
+            (function (l) {
+                if (l.search[1] === "/") {
+                    var decoded = l.search
+                        .slice(1)
+                        .split("&")
+                        .map(function (s) {
+                            return s.replace(/~and~/g, "&");
+                        })
+                        .join("?");
+                    window.history.replaceState(null, null, l.pathname.slice(0, -1) + decoded + l.hash);
+                }
+            })(window.location);
+        </script>
       <script type="module" crossorigin src="/react-vite-template/index.js"></script>
       <link rel="stylesheet" crossorigin href="/react-vite-template/index-BKlr6yp3.css">
     <link rel="manifest" href="/react-vite-template/manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="/react-vite-template/registerSW.js"></script></head>
