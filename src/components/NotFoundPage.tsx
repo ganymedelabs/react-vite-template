@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "./components/Image.tsx";
+import Image from "./Image.tsx";
 
 export default function NotFoundPage(): React.JSX.Element {
     return (
