@@ -11,18 +11,3 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         </Router>
     </React.StrictMode>
 );
-
-console.log(import.meta.env.VITE_PUBLIC_URL);
-
-if ("serviceWorker" in navigator) {
-    window.addEventListener("load", () => {
-        navigator.serviceWorker
-            .register(`${import.meta.env.VITE_PUBLIC_URL}/service-worker.js`)
-            .then((registration) => {
-                console.log("Service Worker registered: ", registration);
-            })
-            .catch((registrationError) => {
-                console.error("Service Worker registration failed: ", registrationError);
-            });
-    });
-}

@@ -155,7 +155,23 @@ To make this template work for your repository, you need to update a few configu
     <Router basename="/your-repo-name">
     ```
 
-3. **index.html**
+3. **.env.production and .env.development**
+
+    - Update the `VITE_PUBLIC_URL` values to reflect the name of your repository. Replace `react-vite-template` with your repository name.
+
+    **.env.production**
+
+    ```env
+    VITE_PUBLIC_URL=https://your-username.github.io/react-vite-template
+    ```
+
+    **.env.development**
+
+    ```env
+    VITE_PUBLIC_URL=http://localhost:3000/react-vite-template
+    ```
+
+4. **index.html**
 
     - Change the `href` value of `<link rel="canonical" href="https://discontinuedlabs.github.io/react-vite-template/" />` to the URL of your GitHub Pages.
 
@@ -169,7 +185,7 @@ To make this template work for your repository, you need to update a few configu
     <link rel="apple-touch-icon" sizes="180x180" href="/your-repo-name/images/favicons/apple-touch-icon.png" />
     ```
 
-4. **public/manifest.json**
+5. **public/manifest.json**
 
     - Change all instances of `"react-vite-template"` to the name of your repository. If your GitHub Pages URL is `https://your-username.github.io/`, leave the `"react-vite-template"` string as `"/"`.
 

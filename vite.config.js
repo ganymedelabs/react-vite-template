@@ -1,7 +1,7 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import eslint from "vite-plugin-eslint";
-// import { VitePWA } from "vite-plugin-pwa";
+import { VitePWA } from "vite-plugin-pwa";
 
 export default defineConfig(() => {
     return {
@@ -17,7 +17,7 @@ export default defineConfig(() => {
             // rollupOptions: {
             //     output: {
             //         entryFileNames: "index.js",
-            //         assetFileNames: "[name]-[hash].[ext]",
+            //         assetFileNames: "index.css",
             //     },
             // },
         },
@@ -25,26 +25,18 @@ export default defineConfig(() => {
         plugins: [
             react(),
             eslint(),
-            // VitePWA({
-            //     registerType: "autoUpdate",
-            //     includeAssets: [
-            //         "favicon.ico",
-            //         "logo.png",
-            //         "android-chrome-192x192.png",
-            //         "android-chrome-512x512.png",
-            //         "apple-touch-icon.png",
-            //         "favicon-16x16.png",
-            //         "favicon-32x32.png",
-            //     ],
-            //     devOptions: {
-            //         enabled: true,
-            //     },
-            //     workbox: {
-            //         cleanupOutdatedCaches: true,
-            //         clientsClaim: true,
-            //         skipWaiting: true,
-            //     },
-            // }),
+            VitePWA({
+                registerType: "autoUpdate",
+                devOptions: {
+                    enabled: true,
+                },
+                workbox: {
+                    globPatterns: ["**/*.{js,css,html,png,svg}"],
+                    cleanupOutdatedCaches: true,
+                    clientsClaim: true,
+                    skipWaiting: true,
+                },
+            }),
         ],
     };
 });
