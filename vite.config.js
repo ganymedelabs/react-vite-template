@@ -41,7 +41,7 @@ export default defineConfig(() => {
                             urlPattern: ({ url }) => url.pathname.endsWith(".js") || url.pathname.endsWith(".css"),
                             handler: "StaleWhileRevalidate",
                             options: {
-                                cacheName: "react-vite-template-v3",
+                                cacheName: "react-vite-template-v4",
                                 expiration: {
                                     maxEntries: 20,
                                     maxAgeSeconds: 60 * 60 * 24 * 30, // 30 days
