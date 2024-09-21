@@ -32,7 +32,7 @@ export default defineConfig(() => {
                     runtimeCaching: [
                         {
                             urlPattern: ({ url }) => url.pathname.endsWith(".css"),
-                            handler: "StaleWhileRevalidate",
+                            handler: "NetworkFirst",
                             // options: {
                             //     // cacheName: "css-cache",
                             //     expiration: {
@@ -43,7 +43,7 @@ export default defineConfig(() => {
                         },
                         {
                             urlPattern: ({ url }) => url.pathname.endsWith(".js"),
-                            handler: "StaleWhileRevalidate",
+                            handler: "NetworkFirst",
                             // options: {
                             //     cacheName: "js-cache",
                             //     expiration: {
