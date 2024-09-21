@@ -38,10 +38,10 @@ export default defineConfig(() => {
                     skipWaiting: true,
                     runtimeCaching: [
                         {
-                            urlPattern: ({ url }) => /\.(js|css)$/.test(url.pathname),
+                            urlPattern: url.pathname.endsWith(".js") || url.pathname.endsWith(".css"),
                             handler: "StaleWhileRevalidate",
                             options: {
-                                cacheName: "react-vite-template-v2",
+                                cacheName: "react-vite-template-v3",
                                 expiration: {
                                     maxEntries: 20,
                                     maxAgeSeconds: 60 * 60 * 24 * 30, // 30 days
