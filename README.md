@@ -16,7 +16,6 @@ This is a React template created with Vite and configured with TypeScript, Tailw
 ## Table of Contents
 
 -   [Getting Started](#getting-started)
--   [Available Scripts](#available-scripts)
 -   [ESLint Configuration](#eslint-configuration)
 -   [Prettier Configuration](#prettier-configuration)
 -   [Docker Configuration](#docker-configuration)
@@ -60,42 +59,6 @@ yarn dev
 ```
 
 This will start the development server at `http://localhost:3000`.
-
-## Available Scripts
-
-In the project directory, you can run:
-
-1. `npm run start` or `yarn start`
-
-    - Runs the app in the development mode. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-2. `npm run build` or `yarn build`
-
-    - Builds the app for production to the `dist` folder.
-
-3. `npm run serve` or `yarn serve`
-
-    - Serves the built app in the `dist` folder.
-
-4. `npm run lint` or `yarn lint`
-
-    - Lints the project using ESLint.
-
-5. `npm run lint:fix` or `yarn lint:fix`
-
-    - Lints the project and automatically fixes problems using ESLint.
-
-6. `npm run test` or `yarn test`
-
-    - Runs the tests using Jest.
-
-7. `npm run coverage` or `yarn coverage`
-
-    - Runs the tests and generates a coverage report.
-
-8. `npm run deploy` or `yarn deploy`
-
-    - Deploys the app to GitHub Pages.
 
 ## ESLint Configuration
 
