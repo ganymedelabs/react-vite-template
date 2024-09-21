@@ -16,6 +16,8 @@ This is a React template created with Vite and configured with TypeScript, Tailw
 ## Table of Contents
 
 -   [Getting Started](#getting-started)
+-   [TypeScript Configuration](#typescript-configuration)
+-   [TailwindCSS Configuration](#tailwindcss-configuration)
 -   [ESLint Configuration](#eslint-configuration)
 -   [Prettier Configuration](#prettier-configuration)
 -   [Docker Configuration](#docker-configuration)
@@ -59,6 +61,14 @@ yarn dev
 ```
 
 This will start the development server at `http://localhost:3000`.
+
+## TypeScript Configuration
+
+This project uses TypeScript for static type-checking and ensuring type safety. You can find the configuration in the `tsconfig.json` file.
+
+## TailwindCSS Configuration
+
+TailwindCSS is used for utility-first styling. It is configured with Just-in-Time (JIT) mode for optimized builds. You can find the configuration in the `tailwind.config.js` file.
 
 ## ESLint Configuration
 
