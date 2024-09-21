@@ -147,7 +147,7 @@ To make this template work for your repository, you need to update a few configu
     - Change the `base` value to the name of your repository.
 
     ```json
-    "base": "/your-repo-name"
+    "base": "/your-repo-name/"
     ```
 
 2. **src/index.tsx**
