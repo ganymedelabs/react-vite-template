@@ -64,7 +64,7 @@ This will start the development server at `http://localhost:3000`.
 
 ## TypeScript Configuration
 
-This project uses TypeScript for static type-checking and ensuring type safety. You can find the configuration in the `tsconfig.json` file.
+This template uses TypeScript for static type-checking and ensuring type safety. You can find the configuration in the `tsconfig.json` file.
 
 ## TailwindCSS Configuration
 
