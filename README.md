@@ -8,8 +8,9 @@
 ![Prettier version](https://img.shields.io/badge/Prettier-3.3.2-F7B93E?logo=prettier&logoColor=white)
 ![PWA Support](https://img.shields.io/badge/PWA-Support-4FC08D?logo=workbox&logoColor=white)
 ![GitHub Pages](https://img.shields.io/github/deployments/discontinuedlabs/react-vite-template/github-pages?label=GitHub%20Pages&color=brightgreen&logo=github&logoColor=white)
+![BrowserRouter](https://img.shields.io/badge/Router-BrowserRouter-CA4245?logo=reactrouter&logoColor=white)
 
-This is a React template created with Vite and configured with TypeScript, TailwindCSS, ESLint, Prettier, Docker, and PWA support using Workbox. It is ready to be deployed on GitHub Pages and is set up to enforce code quality and styling guidelines.
+This is a React template created with Vite and configured with TypeScript, TailwindCSS, ESLint, Prettier, Docker, and PWA support using Workbox. It is ready to be deployed on GitHub Pages and is compatible with BrowserRouter, allowing seamless URL routing.
 
 ## Table of Contents
 
@@ -135,6 +136,8 @@ npm run deploy
 yarn deploy
 ```
 
+Unlike many GitHub Pages setups that require the use of `HashRouter` due to URL routing limitations, this template is compatible with `BrowserRouter` thanks to the configuration provided by [rafgraph's Single Page Apps for GitHub Pages](https://github.com/rafgraph/spa-github-pages). It uses a custom `404.html` file and a redirect script to handle URL routing correctly and avoid 404 errors on page reloads. Be sure to update the `homepage` field in `package.json` to match your repository URL.
+
 ## Repository Configuration
 
 To make this template work for your repository, you need to update a few configuration files:
@@ -224,6 +227,7 @@ Additionally, while not required for the template to work, it's a good idea to c
     "Vite",
     "TypeScript",
     "GitHub Pages",
+    "BrowserRouter",
     "Docker",
     "Tailwind CSS",
     "ESLint",
