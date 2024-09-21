@@ -19,6 +19,7 @@
         "Vite",
         "TypeScript",
         "GitHub Pages",
+        "BrowserRouter",
         "Docker",
         "Tailwind CSS",
         "ESLint",
