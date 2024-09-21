@@ -152,7 +152,7 @@ To make this template work for your repository, you need to update a few configu
 
 2. **src/index.tsx**
 
-    - Change the `basename` value of `Router` to the name of your repository.
+    - Change the `basename` value of `<Router basename="/react-vite-template">` to the name of your repository.
 
     ```jsx
     <Router basename="/your-repo-name">
