@@ -244,7 +244,7 @@ Additionally, while not required for the template to work, it's a good idea to c
 
 ### Caching Issue with `index.css` in GitHub Pages Deployment
 
-There is a known issue with the caching of the `index.css` file when deploying the application to GitHub Pages. The problem arises because the `index.css` filename is constant and does not include a hash (e.g., `index.bH53fA.css`), which prevents the browser from updating the file when new changes are deployed. As a result, users may see outdated styles unless they manually clear their browser cache.
+There is a known issue with the caching of the `index.css` file when deploying the application to GitHub Pages. The problem arises because the `index.css` filename is constant and does not include a hash (e.g., `index-BKlr6yp3.css`), which prevents the browser from updating the file when new changes are deployed. As a result, users may see outdated styles unless they manually clear their browser cache.
 
 - **Why this happens**: By default, Vite adds a hash to static assets like `index.css` and `index.js` during each build. However, to avoid a `404` error in the app when deployed to GitHub Pages (due to service worker cache expecting the old file names), the names were set to be constant. The issue mainly affects `index.css` because it doesn't get updated in the browser without clearing the cache, although `index.js` behaves as expected.
 
