@@ -161,7 +161,7 @@ To make this template work for your repository, you need to update a few configu
 
 3. **.env.production and .env.development**
 
-    - Update the `VITE_PUBLIC_URL` values to reflect the name of your repository. Replace `react-vite-template` with your repository name.
+    - Update the `.env` files to reflect your repository's URL. Ensure that `VITE_PUBLIC_URL` matches your local development server URL in `.env.development` and your GitHub Pages URL in `.env.production`.
 
     **.env.production**
 
