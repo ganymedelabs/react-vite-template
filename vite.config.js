@@ -14,12 +14,6 @@ export default defineConfig(() => {
         build: {
             outDir: "build",
             assetsDir: ".",
-            rollupOptions: {
-                output: {
-                    entryFileNames: "index.js",
-                    assetFileNames: "index.css",
-                },
-            },
         },
 
         plugins: [
@@ -35,6 +29,30 @@ export default defineConfig(() => {
                     cleanupOutdatedCaches: true,
                     clientsClaim: true,
                     skipWaiting: true,
+                    runtimeCaching: [
+                        {
+                            urlPattern: ({ request }) => request.destination === "style",
+                            handler: "StaleWhileRevalidate",
+                            options: {
+                                cacheName: "css-cache",
+                                expiration: {
+                                    maxEntries: 20,
+                                    maxAgeSeconds: 60 * 60 * 24 * 30, // 30 days
+                                },
+                            },
+                        },
+                        {
+                            urlPattern: ({ request }) => request.destination === "script",
+                            handler: "StaleWhileRevalidate",
+                            options: {
+                                cacheName: "js-cache",
+                                expiration: {
+                                    maxEntries: 20,
+                                    maxAgeSeconds: 60 * 60 * 24 * 30, //  30 days
+                                },
+                            },
+                        },
+                    ],
                 },
             }),
         ],
