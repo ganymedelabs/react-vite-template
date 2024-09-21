@@ -38,7 +38,7 @@ export default defineConfig(() => {
                     skipWaiting: true,
                     runtimeCaching: [
                         {
-                            urlPattern: url.pathname.endsWith(".js") || url.pathname.endsWith(".css"),
+                            urlPattern: ({ url }) => url.pathname.endsWith(".js") || url.pathname.endsWith(".css"),
                             handler: "StaleWhileRevalidate",
                             options: {
                                 cacheName: "react-vite-template-v3",
