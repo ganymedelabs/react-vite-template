@@ -31,7 +31,7 @@ export default defineConfig(() => {
                     skipWaiting: true,
                     runtimeCaching: [
                         {
-                            urlPattern: ({ request }) => request.destination === "style",
+                            urlPattern: ({ url }) => url.pathname.endsWith(".css"),
                             handler: "StaleWhileRevalidate",
                             options: {
                                 cacheName: "css-cache",
@@ -42,7 +42,7 @@ export default defineConfig(() => {
                             },
                         },
                         {
-                            urlPattern: ({ request }) => request.destination === "script",
+                            urlPattern: ({ url }) => url.pathname.endsWith(".js"),
                             handler: "StaleWhileRevalidate",
                             options: {
                                 cacheName: "js-cache",
