@@ -6,7 +6,7 @@
         <link rel="canonical" href="https://discontinuedlabs.github.io/react-vite-template/" />
         <meta
             name="description"
-            content="This is a React template created with Vite and configured with TypeScript, TailwindCSS, ESLint, Prettier, Docker, and PWA support using Workbox. It is ready to be deployed on GitHub Pages and is set up to enforce code quality and styling guidelines."
+            content="This is a React template created with Vite and configured with TypeScript, TailwindCSS, ESLint, Prettier, Docker, and PWA support using Workbox. It is ready to be deployed on GitHub Pages and is compatible with BrowserRouter, allowing seamless URL routing."
         />
         <title>React Vite Template</title>
 
@@ -16,40 +16,45 @@
         <meta name="theme-color" content="#000000" />
 
         <script type="text/javascript">
-            // MIT License
-            // https://github.com/rafgraph/spa-github-pages
-            // This script modifies the current URL by converting the path and query string into a query string format.
-            // It then redirects the browser to a new URL that contains only the query string and hash fragment.
-            // For example: https://www.foo.tld/one/two?a=b&c=d#qwe becomes
-            //              https://www.foo.tld/?/one/two&a=b~and~c=d#qwe
-            // Note: The 404.html file must be at least 512 bytes to work with Internet Explorer (currently it exceeds 512 bytes).
-            //
-            // If you're using a Project Pages site without a custom domain, set pathSegmentsToKeep to 1
-            // (enterprise users may need a higher value). This ensures only the route portion of the path is replaced,
-            // keeping the app’s actual directory intact.
-            // For example: https://username.github.io/repo-name/one/two?a=b&c=d#qwe becomes
-            //              https://username.github.io/repo-name/?/one/two&a=b~and~c=d#qwe
-            // If you're using a custom domain, leave pathSegmentsToKeep as 0.
-            (function (l) {
-                if (l.search[1] === "/") {
-                    var decoded = l.search
+            /**
+             * Single Page Apps for GitHub Pages
+             * MIT License
+             * https://github.com/rafgraph/spa-github-pages
+             *
+             * This script handles redirects for single-page applications hosted on GitHub Pages.
+             * It checks for redirect information in the query string, decodes it into the correct URL,
+             * and updates the browser's history using window.history.replaceState(...) without causing
+             * the browser to reload the page. This ensures that when the single page app loads,
+             * the correct URL is available in the browser's history for proper routing.
+             */
+            (function (location) {
+                // Check if the query string starts with a slash, indicating a redirect
+                if (location.search.startsWith("/")) {
+                    // Decode the query string by replacing '~and~' with '&'
+                    var decodedUrl = location.search
                         .slice(1)
                         .split("&")
-                        .map(function (s) {
-                            return s.replace(/~and~/g, "&");
+                        .map(function (part) {
+                            return part.replace(/~and~/g, "&");
                         })
                         .join("?");
-                    window.history.replaceState(null, null, l.pathname.slice(0, -1) + decoded + l.hash);
+
+                    // Update the browser history with the correct URL without reloading the page
+                    window.history.replaceState(
+                        null,
+                        null,
+                        location.pathname.slice(0, -1) + decodedUrl + location.hash
+                    );
                 }
             })(window.location);
         </script>
-      <script type="module" crossorigin src="/react-vite-template/index-6DRX_4Cg.js"></script>
-      <link rel="stylesheet" crossorigin href="/react-vite-template/index-BKlr6yp3.css">
+      <script type="module" crossorigin src="/react-vite-template/index-B3OPPYjT.js"></script>
+      <link rel="stylesheet" crossorigin href="/react-vite-template/index-3TMpYJgM.css">
     <link rel="manifest" href="/react-vite-template/manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="/react-vite-template/registerSW.js"></script></head>
 
     <body>
         <noscript>You need to enable JavaScript to run this app.</noscript>
         <div id="root"></div>
-
+
     </body>
 </html>
