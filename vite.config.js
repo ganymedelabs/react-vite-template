@@ -33,24 +33,24 @@ export default defineConfig(() => {
                         {
                             urlPattern: ({ url }) => url.pathname.endsWith(".css"),
                             handler: "NetworkFirst",
-                            options: {
-                                // cacheName: "css-cache",
-                                expiration: {
-                                    maxEntries: 20,
-                                    maxAgeSeconds: 60 * 60 * 24 * 30, // 30 days
-                                },
-                            },
+                            // options: {
+                            //     // cacheName: "css-cache",
+                            //     expiration: {
+                            //         maxEntries: 20,
+                            //         maxAgeSeconds: 60 * 60 * 24 * 30, // 30 days
+                            //     },
+                            // },
                         },
                         {
                             urlPattern: ({ url }) => url.pathname.endsWith(".js"),
                             handler: "NetworkFirst",
-                            options: {
-                                // cacheName: "js-cache",
-                                expiration: {
-                                    maxEntries: 20,
-                                    maxAgeSeconds: 60 * 60 * 24 * 30, //  30 days
-                                },
-                            },
+                            // options: {
+                            //     cacheName: "js-cache",
+                            //     expiration: {
+                            //         maxEntries: 20,
+                            //         maxAgeSeconds: 60 * 60 * 24 * 30, //  30 days
+                            //     },
+                            // },
                         },
                     ],
                 },
