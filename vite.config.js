@@ -14,6 +14,13 @@ export default defineConfig(() => {
         build: {
             outDir: "build",
             assetsDir: ".",
+            rollupOptions: {
+                output: {
+                    entryFileNames: "[name].[hash].js",
+                    chunkFileNames: "[name].[hash].js",
+                    assetFileNames: "[name].[hash].[ext]",
+                },
+            },
         },
 
         plugins: [
@@ -31,26 +38,15 @@ export default defineConfig(() => {
                     skipWaiting: true,
                     runtimeCaching: [
                         {
-                            urlPattern: ({ url }) => url.pathname.endsWith(".css"),
-                            handler: "NetworkFirst",
-                            // options: {
-                            //     // cacheName: "css-cache",
-                            //     expiration: {
-                            //         maxEntries: 20,
-                            //         maxAgeSeconds: 60 * 60 * 24 * 30, // 30 days
-                            //     },
-                            // },
-                        },
-                        {
-                            urlPattern: ({ url }) => url.pathname.endsWith(".js"),
-                            handler: "NetworkFirst",
-                            // options: {
-                            //     cacheName: "js-cache",
-                            //     expiration: {
-                            //         maxEntries: 20,
-                            //         maxAgeSeconds: 60 * 60 * 24 * 30, //  30 days
-                            //     },
-                            // },
+                            urlPattern: ({ url }) => /\.(js|css)$/.test(url.pathname),
+                            handler: "StaleWhileRevalidate",
+                            options: {
+                                cacheName: "react-vite-template-v2",
+                                expiration: {
+                                    maxEntries: 20,
+                                    maxAgeSeconds: 60 * 60 * 24 * 30, // 30 days
+                                },
+                            },
                         },
                     ],
                 },
