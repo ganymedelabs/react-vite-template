@@ -1,14 +1,14 @@
 # React Vite Template with TypeScript, TailwindCSS, ESLint, Prettier, Docker, and PWA Support
 
 ![React version](https://img.shields.io/badge/React-18.3.1-61DAFB?logo=react)
-![Vite version](https://img.shields.io/badge/Vite-5.3.4-646CFF?logo=vite&logoColor=white)
-![TailwindCSS version](https://img.shields.io/badge/TailwindCSS-3.4.6-06B6D4?logo=tailwindcss&logoColor=white)
-![TypeScript version](https://img.shields.io/badge/TypeScript-5.5.3-3178C6?logo=typescript&logoColor=white)
-![ESLint version](https://img.shields.io/badge/ESLint-8.57.0-4B32C3?logo=eslint&logoColor=white)
-![Prettier version](https://img.shields.io/badge/Prettier-3.3.2-F7B93E?logo=prettier&logoColor=white)
-![PWA Support](https://img.shields.io/badge/PWA-Support-4FC08D?logo=workbox&logoColor=white)
-![GitHub Pages](https://img.shields.io/github/deployments/discontinuedlabs/react-vite-template/github-pages?label=GitHub%20Pages&color=brightgreen&logo=github&logoColor=white)
-![BrowserRouter](https://img.shields.io/badge/Router-BrowserRouter-CA4245?logo=reactrouter&logoColor=white)
+![Vite version](https://img.shields.io/badge/Vite-5.3.4-646CFF?logo=vite)
+![TailwindCSS version](https://img.shields.io/badge/TailwindCSS-3.4.6-06B6D4?logo=tailwindcss)
+![TypeScript version](https://img.shields.io/badge/TypeScript-5.5.3-3178C6?logo=typescript)
+![ESLint version](https://img.shields.io/badge/ESLint-8.57.0-4B32C3?logo=eslint)
+![Prettier version](https://img.shields.io/badge/Prettier-3.3.2-F7B93E?logo=prettier)
+![PWA Support](https://img.shields.io/badge/PWA-Support-4FC08D?logo=workbox)
+![GitHub Pages](https://img.shields.io/github/deployments/discontinuedlabs/react-vite-template/github-pages?label=GitHub%20Pages&color=brightgreen&logo=github)
+![BrowserRouter](https://img.shields.io/badge/Router-BrowserRouter-CA4245?logo=reactrouter)
 
 This is a React template created with Vite and configured with TypeScript, TailwindCSS, ESLint, Prettier, Docker, and PWA support using Workbox. It is ready to be deployed on GitHub Pages and is compatible with BrowserRouter, allowing seamless URL routing.
 
