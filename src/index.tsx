@@ -16,8 +16,10 @@ if ("serviceWorker" in navigator) {
     window.addEventListener("load", () => {
         navigator.serviceWorker.ready
             .then((registration) => {
+                // Periodically check for updates to the service worker
                 registration.update();
 
+                // Listen for updates to the service worker
                 registration.addEventListener("updatefound", () => {
                     const newWorker = registration.installing;
 
