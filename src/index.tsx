@@ -13,32 +13,27 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
 );
 
 if ("serviceWorker" in navigator) {
-    // window.addEventListener("load", () => {
-    //     window.addEventListener("error", (event) => {
-    //         const { filename } = event;
-    //         const isCSSorJS = filename.endsWith(".css") || filename.endsWith(".js");
+    window.addEventListener("load", () => {
+        navigator.serviceWorker.getRegistration().then((registration) => {
+            if (registration) {
+                registration.update();
+            }
+        });
 
-    //         if (isCSSorJS) {
-    //             console.error(`Error loading cached file: ${filename}. Unregistering service worker.`);
+        window.addEventListener("error", (event) => {
+            if (event.message.includes("net::ERR_ABORTED") || event.message.includes("404")) {
+                console.warn("Service worker error detected, unregistering...");
 
-    //             navigator.serviceWorker.getRegistrations().then((registrations) => {
-    //                 registrations.forEach((registration) => {
-    //                     registration.unregister().then(() => {
-    //                         console.log("Service worker unregistered.");
-    //                     });
-    //                 });
-    //             });
-    //         }
-    //     });
+                navigator.serviceWorker.getRegistrations().then((registrations) => {
+                    registrations.forEach((registration) => registration.unregister());
+                });
 
-    //     navigator.serviceWorker.ready.then((registration) => {
-    //         registration.update().catch(() => {
-    //             console.log("Service worker update failed");
-    //         });
-    //     });
-    // });
-
-    navigator.serviceWorker.addEventListener("controllerchange", () => {
-        window.location.reload();
+                if ("caches" in window) {
+                    caches.keys().then((cacheNames) => {
+                        cacheNames.forEach((cacheName) => caches.delete(cacheName));
+                    });
+                }
+            }
+        });
     });
 }

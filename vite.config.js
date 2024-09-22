@@ -42,7 +42,7 @@ export default defineConfig(() => {
                             urlPattern: ({ url }) => url.pathname.endsWith(".js") || url.pathname.endsWith(".css"),
                             handler: "NetworkFirst",
                             options: {
-                                cacheName: "react-vite-template-v4",
+                                cacheName: "react-vite-template-v5",
                                 expiration: {
                                     maxEntries: 20,
                                     maxAgeSeconds: 60 * 60 * 24 * 30, // 30 days
