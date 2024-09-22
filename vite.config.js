@@ -21,8 +21,7 @@ export default defineConfig(() => {
             react(),
             eslint(),
             VitePWA({
-                strategies: "generateSW",
-                registerType: "prompt",
+                registerType: "autoUpdate",
                 manifest: {
                     short_name: "React Vite Template",
                     name: "React Vite Template",
@@ -56,6 +55,7 @@ export default defineConfig(() => {
                     globPatterns: ["**/*.{js,css,html,svg,png,svg,ico}"],
                     cleanupOutdatedCaches: true,
                     clientsClaim: true,
+                    skipWaiting: true,
                 },
                 injectManifest: {
                     globPatterns: ["**/*.{js,css,html,svg,png,svg,ico}"],
