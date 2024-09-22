@@ -23,8 +23,6 @@ export default defineConfig(() => {
             VitePWA({
                 strategies: "generateSW",
                 registerType: "prompt",
-                injectRegister: false,
-                pwaAssets: { disabled: false, config: true, htmlPreset: "2023", overrideManifestIcons: true },
                 manifest: {
                     short_name: "React Vite Template",
                     name: "React Vite Template",
@@ -63,7 +61,7 @@ export default defineConfig(() => {
                     globPatterns: ["**/*.{js,css,html,svg,png,svg,ico}"],
                 },
                 devOptions: {
-                    enabled: false,
+                    enabled: true,
                     navigateFallback: "index.html",
                     suppressWarnings: true,
                     type: "module",
