@@ -21,7 +21,7 @@ export default defineConfig(() => {
             react(),
             eslint(),
             VitePWA({
-                registerType: "autoUpdate",
+                registerType: "prompt",
                 manifest: {
                     short_name: "React Vite Template",
                     name: "React Vite Template",
