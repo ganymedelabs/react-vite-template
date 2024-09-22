@@ -15,12 +15,12 @@ export default defineConfig(() => {
         build: {
             outDir: "build",
             assetsDir: ".",
-            rollupOptions: {
-                output: {
-                    entryFileNames: "index.js",
-                    assetFileNames: "index.css",
-                },
-            },
+            // rollupOptions: {
+            //     output: {
+            //         entryFileNames: "index.js",
+            //         assetFileNames: "index.css",
+            //     },
+            // },
         },
 
         plugins: [
@@ -34,19 +34,6 @@ export default defineConfig(() => {
                     cleanupOutdatedCaches: true,
                     clientsClaim: true,
                     skipWaiting: true,
-                    runtimeCaching: [
-                        {
-                            urlPattern: /index\.(js|css)$/,
-                            handler: "NetworkFirst",
-                            options: {
-                                cacheName: "static-resources",
-                                expiration: {
-                                    maxEntries: 10,
-                                    maxAgeSeconds: 10,
-                                },
-                            },
-                        },
-                    ],
                 },
                 devOptions: {
                     enabled: true,
