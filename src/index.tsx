@@ -11,29 +11,3 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         </Router>
     </React.StrictMode>
 );
-
-if ("serviceWorker" in navigator) {
-    window.addEventListener("load", () => {
-        navigator.serviceWorker.getRegistration().then((registration) => {
-            if (registration) {
-                registration.update();
-            }
-        });
-
-        window.addEventListener("error", (event) => {
-            if (event.message.includes("net::ERR_ABORTED") || event.message.includes("404")) {
-                console.warn("Service worker error detected, unregistering...");
-
-                navigator.serviceWorker.getRegistrations().then((registrations) => {
-                    registrations.forEach((registration) => registration.unregister());
-                });
-
-                if ("caches" in window) {
-                    caches.keys().then((cacheNames) => {
-                        cacheNames.forEach((cacheName) => caches.delete(cacheName));
-                    });
-                }
-            }
-        });
-    });
-}

@@ -20,37 +20,11 @@ export default defineConfig(() => {
         plugins: [
             react(),
             eslint(),
-            // VitePWA({
-            //     registerType: "autoUpdate",
-            //     devOptions: {
-            //         enabled: true,
-            //         type: "module",
-            //     },
-            //     workbox: {
-            //         globPatterns: ["**/*.{js,css,html,png,svg}"],
-            //         cleanupOutdatedCaches: true,
-            //         clientsClaim: true,
-            //         skipWaiting: true,
-            //         runtimeCaching: [
-            //             {
-            //                 urlPattern: ({ url }) => url.pathname.endsWith(".js") || url.pathname.endsWith(".css"),
-            //                 handler: "NetworkFirst",
-            //                 options: {
-            //                     cacheName: "react-vite-template-v5",
-            //                     expiration: {
-            //                         maxEntries: 20,
-            //                         maxAgeSeconds: 60 * 60 * 24 * 30, // 30 days
-            //                     },
-            //                 },
-            //             },
-            //         ],
-            //     },
-            // }),
             VitePWA({
                 strategies: "generateSW",
                 registerType: "prompt",
                 injectRegister: false,
-                pwaAssets: { disabled: false, config: true, htmlPreset: "2024", overrideManifestIcons: true },
+                pwaAssets: { disabled: false, config: true, htmlPreset: "2023", overrideManifestIcons: true },
                 manifest: {
                     short_name: "React Vite Template",
                     name: "React Vite Template",
@@ -89,7 +63,7 @@ export default defineConfig(() => {
                     globPatterns: ["**/*.{js,css,html,svg,png,svg,ico}"],
                 },
                 devOptions: {
-                    enabled: true,
+                    enabled: false,
                     navigateFallback: "index.html",
                     suppressWarnings: true,
                     type: "module",
