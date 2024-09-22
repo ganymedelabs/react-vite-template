@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import Image from "./Image.tsx";
+import Image from "../components/Image.tsx";
 
 export default function Home() {
     const [isSpinning, setIsSpinning] = useState<boolean>(true);
