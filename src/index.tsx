@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import { BrowserRouter as Router } from "react-router-dom";
 import App from "./App.tsx";
+import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
     <React.StrictMode>
@@ -11,3 +12,5 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         </Router>
     </React.StrictMode>
 );
+
+serviceWorkerRegistration.register();
