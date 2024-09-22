@@ -13,32 +13,32 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
 );
 
 if ("serviceWorker" in navigator) {
-    window.addEventListener("load", () => {
-        window.addEventListener("error", (event) => {
-            const { filename } = event;
-            const isCSSorJS = filename.endsWith(".css") || filename.endsWith(".js");
+    // window.addEventListener("load", () => {
+    //     window.addEventListener("error", (event) => {
+    //         const { filename } = event;
+    //         const isCSSorJS = filename.endsWith(".css") || filename.endsWith(".js");
 
-            if (isCSSorJS) {
-                console.error(`Error loading cached file: ${filename}. Unregistering service worker.`);
+    //         if (isCSSorJS) {
+    //             console.error(`Error loading cached file: ${filename}. Unregistering service worker.`);
 
-                navigator.serviceWorker.getRegistrations().then((registrations) => {
-                    registrations.forEach((registration) => {
-                        registration.unregister().then(() => {
-                            console.log("Service worker unregistered.");
-                        });
-                    });
-                });
-            }
-        });
+    //             navigator.serviceWorker.getRegistrations().then((registrations) => {
+    //                 registrations.forEach((registration) => {
+    //                     registration.unregister().then(() => {
+    //                         console.log("Service worker unregistered.");
+    //                     });
+    //                 });
+    //             });
+    //         }
+    //     });
 
-        navigator.serviceWorker.ready.then((registration) => {
-            registration.update().catch(() => {
-                console.log("Service worker update failed");
-            });
-        });
+    //     navigator.serviceWorker.ready.then((registration) => {
+    //         registration.update().catch(() => {
+    //             console.log("Service worker update failed");
+    //         });
+    //     });
+    // });
 
-        navigator.serviceWorker.addEventListener("controllerchange", () => {
-            window.location.reload();
-        });
+    navigator.serviceWorker.addEventListener("controllerchange", () => {
+        window.location.reload();
     });
 }
