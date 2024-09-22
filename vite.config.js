@@ -25,13 +25,13 @@ export default defineConfig(() => {
                 injectRegister: false,
                 filename: "service-worker.js",
                 workbox: {
-                    globPatterns: ["**/*.{js,css,html,svg,png,svg,ico}"],
+                    globPatterns: ["**/*.{js,css,html,png,svg,ico}"],
                     cleanupOutdatedCaches: true,
                     clientsClaim: true,
                     skipWaiting: true,
                 },
                 injectManifest: {
-                    globPatterns: ["**/*.{js,css,html,svg,png,svg,ico}"],
+                    globPatterns: ["**/*.{js,css,html,png,svg,ico}"],
                 },
                 devOptions: {
                     enabled: false,
