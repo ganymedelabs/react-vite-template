@@ -30,6 +30,7 @@ export default defineConfig(() => {
                 registerType: "autoUpdate",
                 devOptions: {
                     enabled: true,
+                    type: "module",
                 },
                 workbox: {
                     globPatterns: ["**/*.{js,css,html,png,svg}"],
@@ -39,7 +40,7 @@ export default defineConfig(() => {
                     runtimeCaching: [
                         {
                             urlPattern: ({ url }) => url.pathname.endsWith(".js") || url.pathname.endsWith(".css"),
-                            handler: "StaleWhileRevalidate",
+                            handler: "NetworkFirst",
                             options: {
                                 cacheName: "react-vite-template-v4",
                                 expiration: {
