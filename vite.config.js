@@ -15,6 +15,12 @@ export default defineConfig(() => {
         build: {
             outDir: "build",
             assetsDir: ".",
+            rollupOptions: {
+                output: {
+                    entryFileNames: "index.js",
+                    assetFileNames: "index.css",
+                },
+            },
         },
 
         plugins: [
@@ -22,7 +28,6 @@ export default defineConfig(() => {
             eslint(),
             VitePWA({
                 registerType: "autoUpdate",
-                injectRegister: false,
                 filename: "service-worker.js",
                 workbox: {
                     globPatterns: ["**/*.{js,css,html,png,svg,ico}"],
@@ -30,11 +35,8 @@ export default defineConfig(() => {
                     clientsClaim: true,
                     skipWaiting: true,
                 },
-                injectManifest: {
-                    globPatterns: ["**/*.{js,css,html,png,svg,ico}"],
-                },
                 devOptions: {
-                    enabled: false,
+                    enabled: true,
                     navigateFallback: "index.html",
                     suppressWarnings: true,
                     type: "module",

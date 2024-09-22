@@ -3,7 +3,6 @@ import Home from "./components/Home.tsx";
 import NotFoundPage from "./components/NotFoundPage.tsx";
 
 export default function App() {
-    console.log("test 3");
     return (
         <main className="h-screen bg-black text-white">
             <Routes>
