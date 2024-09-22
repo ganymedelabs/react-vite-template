@@ -34,6 +34,19 @@ export default defineConfig(() => {
                     cleanupOutdatedCaches: true,
                     clientsClaim: true,
                     skipWaiting: true,
+                    runtimeCaching: [
+                        {
+                            urlPattern: /index\.(js|css)$/,
+                            handler: "NetworkFirst",
+                            options: {
+                                cacheName: "static-resources",
+                                expiration: {
+                                    maxEntries: 10,
+                                    maxAgeSeconds: 10,
+                                },
+                            },
+                        },
+                    ],
                 },
                 devOptions: {
                     enabled: true,
