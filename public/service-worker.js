@@ -1,8 +1,8 @@
-import { registerRoute } from "workbox-routing";
-import { NetworkFirst, StaleWhileRevalidate, CacheFirst } from "workbox-strategies";
-import { CacheableResponsePlugin } from "workbox-cacheable-response";
-import { ExpirationPlugin } from "workbox-expiration";
-import { Workbox } from "workbox-window";
+import { registerRoute } from "../node_modules/workbox-routing";
+import { NetworkFirst, StaleWhileRevalidate, CacheFirst } from "../node_modules/workbox-strategies";
+import { CacheableResponsePlugin } from "../node_modules/workbox-cacheable-response";
+import { ExpirationPlugin } from "../node_modules/workbox-expiration";
+import { Workbox } from "../node_modules/workbox-window";
 
 registerRoute(
     ({ request }) => request.mode === "navigate",
