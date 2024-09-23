@@ -6,13 +6,13 @@ import App from "./App.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
     <React.StrictMode>
-        <Router basename="/react-vite-template">
+        <Router basename="/react-vite-template/">
             <App />
         </Router>
     </React.StrictMode>
 );
 
-if ("serviceWorker" in navigator && import.meta.env.VITE_NODE_ENV === "production") {
+if ("serviceWorker" in navigator) {
     navigator.serviceWorker
         .register(`${import.meta.env.VITE_PUBLIC_URL}/service-worker.js`, { type: "module" })
         .then((registration) => {

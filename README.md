@@ -127,10 +127,10 @@ To make this template work for your repository, you need to update a few configu
 
 2. **src/index.tsx**
 
-    - Change the `basename` value of `<Router basename="/react-vite-template">` to the name of your repository.
+    - Change the `basename` value of `<Router basename="/react-vite-template/">` to the name of your repository.
 
     ```jsx
-    <Router basename="/your-repo-name">
+    <Router basename="/your-repo-name/">
     ```
 
 3. **.env.production and .env.development**
@@ -140,13 +140,13 @@ To make this template work for your repository, you need to update a few configu
     **.env.development**
 
     ```env
-    VITE_PUBLIC_URL=http://localhost:3000/your-repo-name
+    VITE_PUBLIC_URL=http://localhost:3000/your-repo-name/
     ```
 
     **.env.production**
 
     ```env
-    VITE_PUBLIC_URL=https://your-username.github.io/your-repo-name
+    VITE_PUBLIC_URL=https://your-username.github.io/your-repo-name/
     ```
 
 4. **index.html**
