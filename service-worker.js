@@ -1,1 +1,103 @@
-if(!self.define){let i,e={};const n=(n,o)=>(n=new URL(n+".js",o).href,e[n]||new Promise((e=>{if("document"in self){const i=document.createElement("script");i.src=n,i.onload=e,document.head.appendChild(i)}else i=n,importScripts(n),e()})).then((()=>{let i=e[n];if(!i)throw new Error(`Module ${n} didn’t register its module`);return i})));self.define=(o,l)=>{const r=i||("document"in self?document.currentScript.src:"")||location.href;if(e[r])return;let s={};const u=i=>n(i,r),t={module:{uri:r},exports:s,require:u};e[r]=Promise.all(o.map((i=>t[i]||u(i)))).then((i=>(l(...i),s)))}}define(["./workbox-3e911b1d"],(function(i){"use strict";self.skipWaiting(),i.clientsClaim(),i.precacheAndRoute([{url:"favicon.ico",revision:null},{url:"images/favicons/android-chrome-192x192.png",revision:null},{url:"images/favicons/android-chrome-512x512.png",revision:null},{url:"images/favicons/apple-touch-icon.png",revision:null},{url:"images/favicons/favicon-16x16.png",revision:null},{url:"images/favicons/favicon-32x32.png",revision:null},{url:"images/logo.png",revision:null},{url:"index-BKXqAxAY.css",revision:null},{url:"index-DYjse82p.js",revision:null},{url:"index.html",revision:null},{url:"registerSW.js",revision:null},{url:"manifest.webmanifest",revision:"16bbde2983a014645e428042c4ba8a91"}],{}),i.cleanupOutdatedCaches(),i.registerRoute(new i.NavigationRoute(i.createHandlerBoundToURL("index.html")))}));
+/* eslint-disable import/no-relative-packages */
+
+import { registerRoute } from "../node_modules/workbox-routing";
+import { NetworkFirst, StaleWhileRevalidate, CacheFirst } from "../node_modules/workbox-strategies";
+import { CacheableResponsePlugin } from "../node_modules/workbox-cacheable-response";
+import { ExpirationPlugin } from "../node_modules/workbox-expiration";
+import { Workbox } from "../node_modules/workbox-window";
+
+registerRoute(
+    ({ request }) => request.mode === "navigate",
+    new NetworkFirst({
+        cacheName: "pages",
+        plugins: [
+            new CacheableResponsePlugin({
+                statuses: [200],
+            }),
+        ],
+    })
+);
+
+registerRoute(
+    ({ request }) =>
+        request.destination === "style" || request.destination === "script" || request.destination === "worker",
+    new StaleWhileRevalidate({
+        cacheName: "assets",
+        plugins: [
+            new CacheableResponsePlugin({
+                statuses: [200],
+            }),
+        ],
+    })
+);
+
+registerRoute(
+    ({ request }) => request.destination === "image",
+    new CacheFirst({
+        cacheName: "images",
+        plugins: [
+            new CacheableResponsePlugin({
+                statuses: [200],
+            }),
+            new ExpirationPlugin({
+                maxEntries: 50,
+                maxAgeSeconds: 60 * 60 * 24 * 30, // 30 Days
+            }),
+        ],
+    })
+);
+
+registerRoute(
+    ({ url }) => url.origin === "https://fonts.googleapis.com",
+    new StaleWhileRevalidate({
+        cacheName: "google-fonts-stylesheets",
+    })
+);
+
+registerRoute(
+    ({ url }) => url.origin === "https://fonts.gstatic.com",
+    new CacheFirst({
+        cacheName: "google-fonts-webfonts",
+        plugins: [
+            new CacheableResponsePlugin({
+                statuses: [0, 200],
+            }),
+            new ExpirationPlugin({
+                maxAgeSeconds: 60 * 60 * 24 * 365,
+                maxEntries: 30,
+            }),
+        ],
+    })
+);
+
+registerRoute(
+    ({ url }) => url.origin === "https://hacker-news.firebaseio.com",
+    new NetworkFirst({
+        networkTimeoutSeconds: 3,
+        cacheName: "stories",
+        plugins: [
+            new ExpirationPlugin({
+                maxEntries: 50,
+                maxAgeSeconds: 5 * 60, // 5 minutes
+            }),
+        ],
+    })
+);
+
+if ("serviceWorker" in navigator) {
+    const workbox = new Workbox(`${import.meta.env.VITE_PUBLIC_URL}/service-worker.js`);
+
+    workbox.addEventListener("installed", (event) => {
+        if (!event.isUpdate) {
+            console.log("Service worker installed: ", event);
+        }
+    });
+
+    workbox.addEventListener("activated", (event) => {
+        if (!event.isUpdate) {
+            console.log("Service worker activated for the first time!");
+        }
+    });
+
+    workbox.register();
+}
