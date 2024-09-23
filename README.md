@@ -140,13 +140,13 @@ To make this template work for your repository, you need to update a few configu
     **.env.development**
 
     ```env
-    VITE_PUBLIC_URL=http://localhost:3000/your-repo-name/
+    VITE_PUBLIC_URL=http://localhost:3000/your-repo-name
     ```
 
     **.env.production**
 
     ```env
-    VITE_PUBLIC_URL=https://your-username.github.io/your-repo-name/
+    VITE_PUBLIC_URL=https://your-username.github.io/your-repo-name
     ```
 
 4. **index.html**

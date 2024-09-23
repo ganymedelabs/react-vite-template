@@ -12,35 +12,13 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     </React.StrictMode>
 );
 
-if ("serviceWorker" in navigator) {
-    window.addEventListener("load", () => {
-        navigator.serviceWorker.ready
-            .then((registration) => {
-                // Periodically check for updates to the service worker
-                registration.update();
-
-                // Listen for updates to the service worker
-                registration.addEventListener("updatefound", () => {
-                    const newWorker = registration.installing;
-
-                    newWorker!.addEventListener("statechange", () => {
-                        if (newWorker!.state === "installed") {
-                            if (navigator.serviceWorker.controller) {
-                                // Notify the user that a new version is available
-                                // eslint-disable-next-line no-restricted-globals, no-alert
-                                const updateNotification = confirm(
-                                    "A new version is available. Would you like to update?"
-                                );
-                                if (updateNotification) {
-                                    window.location.reload();
-                                }
-                            }
-                        }
-                    });
-                });
-            })
-            .catch((err) => {
-                console.error("Error during service worker registration:", err);
-            });
-    });
+if ("serviceWorker" in navigator && import.meta.env.VITE_NODE_ENV === "production") {
+    navigator.serviceWorker
+        .register(`${import.meta.env.VITE_PUBLIC_URL}/service-worker.js`, { type: "module" })
+        .then((registration) => {
+            console.log("Service Worker registered with scope:", registration.scope);
+        })
+        .catch((error) => {
+            console.error("Service Worker registration failed:", error);
+        });
 }
