@@ -1,10 +1,8 @@
-/* eslint-disable import/no-relative-packages */
 import { registerRoute } from "workbox-routing";
 import { NetworkFirst, StaleWhileRevalidate, CacheFirst } from "workbox-strategies";
 import { CacheableResponsePlugin } from "workbox-cacheable-response";
 import { ExpirationPlugin } from "workbox-expiration";
 import { Workbox } from "workbox-window";
-/* eslint-enable import/no-relative-packages */
 
 registerRoute(
     ({ request }) => request.mode === "navigate",

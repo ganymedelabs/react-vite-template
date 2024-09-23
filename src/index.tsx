@@ -12,7 +12,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     </React.StrictMode>
 );
 
-if ("serviceWorker" in navigator && import.meta.env.VITE_NODE_ENV === "production") {
+if ("serviceWorker" in navigator) {
     navigator.serviceWorker
         .register(`${import.meta.env.VITE_PUBLIC_URL}/service-worker.js`, { type: "module" })
         .then((registration) => {
