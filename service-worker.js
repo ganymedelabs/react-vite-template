@@ -11,7 +11,7 @@ self.addEventListener("message", (event) => {
 workbox.core.clientsClaim();
 
 // Precaching assets
-workbox.precaching.precacheAndRoute([...self.__WB_MANIFEST]);
+workbox.precaching.precacheAndRoute(self.__WB_MANIFEST || []);
 
 // Cleanup outdated caches
 workbox.precaching.cleanupOutdatedCaches();
