@@ -105,7 +105,18 @@ TailwindCSS is used for utility-first styling. It is configured with Just-in-Tim
    ```bash
    npm uninstall tailwindcss postcss autoprefixer prettier-plugin-tailwindcss
    ```
-3. Remove any usage of `@tailwind`, `@apply`, and `@layer` from your `index.css`.
+3. Remove any usage of `@tailwind`, `@apply`, and `@layer` from your `index.css`:
+   ```css
+   @tailwind base;
+   @tailwind components;
+   @tailwind utilities;
+
+   @layer base {
+       * {
+           @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500;
+       }
+   }
+   ```
 4. Remove `prettier-plugin-tailwind` from the `"plugins"` field in `.prettierrc`:
    ```json
    "plugins": ["prettier-plugin-tailwindcss"]
