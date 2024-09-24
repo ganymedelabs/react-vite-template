@@ -82,7 +82,7 @@
         "test": "jest",
         "lint": "eslint .",
         "lint:fix": "eslint --fix .",
-        "format": "prettier --write \'src/**/*.{js,jsx,ts,tsx,json,html,css,md}\'",
+        "format": "prettier --write '**/*.{js,jsx,ts,tsx,json,html,css,md}'",
         "coverage": "npm test --coverage --watchAll --collectCoverageFrom='src/**/*.{js,ts,jsx,tsx}'"
     },
     "eslintConfig": {
