@@ -20,42 +20,21 @@ workbox.routing.registerRoute(
     })
 );
 
-async function cacheAndUpdate({ request }) {
-    const cache = await caches.open("assets");
-    const cachedResponse = await cache.match(request);
-    const networkResponse = await fetch(request);
-
-    if (networkResponse && networkResponse.status === 200) {
-        await cache.put(request, networkResponse.clone());
-
-        const cacheKeys = await cache.keys();
-        const requestUrl = new URL(request.url);
-
-        for (const cacheKey of cacheKeys) {
-            const cachedUrl = new URL(cacheKey.url);
-
-            if (
-                cachedUrl.pathname.split(".").at(-1) === requestUrl.pathname.split(".").at(-1) &&
-                cachedUrl.pathname.includes("index") &&
-                requestUrl.pathname.includes("index") &&
-                cachedUrl.href !== requestUrl.href
-            ) {
-                await cache.delete(cacheKey);
-                console.log(`Deleted outdated file from cache: ${cachedUrl.href}`);
-            }
-        }
-
-        console.log(`Caching new file: ${request.url}`);
-        return networkResponse;
-    }
-
-    return cachedResponse || networkResponse;
-}
-
 workbox.routing.registerRoute(
     ({ request }) =>
         request.destination === "style" || request.destination === "script" || request.destination === "worker",
-    cacheAndUpdate
+    new workbox.strategies.CacheFirst({
+        cacheName: "assets",
+        plugins: [
+            new workbox.cacheableResponse.CacheableResponsePlugin({
+                statuses: [200],
+            }),
+            new workbox.expiration.ExpirationPlugin({
+                maxEntries: 50,
+                maxAgeSeconds: 60 * 60 * 24 * 30, // 30 days
+            }),
+        ],
+    })
 );
 
 workbox.routing.registerRoute(
@@ -73,3 +52,35 @@ workbox.routing.registerRoute(
         ],
     })
 );
+
+async function cleanOldAssets() {
+    const cache = await caches.open("assets");
+    const keys = await cache.keys();
+    const assetsToKeep = new Map();
+
+    for (const request of keys) {
+        const url = new URL(request.url);
+        const baseNameMatch = url.pathname.match(/(index)-(\w+)\.(css|js)/);
+
+        if (baseNameMatch) {
+            const [_, baseName, hash, ext] = baseNameMatch;
+            const key = `${baseName}.${ext}`;
+
+            if (!assetsToKeep.has(key)) {
+                assetsToKeep.set(key, request);
+            } else {
+                const existingRequest = assetsToKeep.get(key);
+                if (existingRequest.url < request.url) {
+                    await cache.delete(existingRequest);
+                    assetsToKeep.set(key, request);
+                } else {
+                    await cache.delete(request);
+                }
+            }
+        }
+    }
+}
+
+self.addEventListener("activate", (event) => {
+    event.waitUntil(cleanOldAssets().then(() => self.clients.claim()));
+});
