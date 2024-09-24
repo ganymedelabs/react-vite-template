@@ -58,14 +58,28 @@ workbox.routing.registerRoute(
 workbox.routing.registerRoute(
     ({ request }) =>
         request.destination === "style" || request.destination === "script" || request.destination === "worker",
-    new workbox.strategies.StaleWhileRevalidate({
-        cacheName: assetsCacheName,
-        plugins: [
-            new workbox.cacheableResponse.CacheableResponsePlugin({
-                statuses: [200],
-            }),
-        ],
-    })
+    async (args) => {
+        const cache = await caches.open(assetsCacheName);
+
+        // Check if the cache already contains an old version of this file
+        const cachedResponse = await cache.match(args.request);
+        if (cachedResponse && cachedResponse.url !== args.request.url) {
+            // If there is an old version in the cache, delete it
+            console.log(`Deleting ${cachedResponse.url}`);
+            await cache.delete(cachedResponse.url);
+        }
+
+        // Fetch the new version
+        const networkResponse = await fetch(args.request);
+
+        // Only add the new version to the cache if the response is valid
+        if (networkResponse.ok) {
+            await cache.put(args.request, networkResponse.clone());
+        }
+
+        return networkResponse; // Return the fetched response
+    },
+    "GET" // This route will only handle GET requests
 );
 
 workbox.routing.registerRoute(
