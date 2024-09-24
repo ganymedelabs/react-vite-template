@@ -275,7 +275,7 @@ Unlike many GitHub Pages setups that require the use of `HashRouter` due to URL 
    VITE_PUBLIC_URL=https://discontinuedlabs.github.io/react-vite-template/
    ```
 5. Update the `Router` component's `basename` property in `index.tsx`:
-   ```tsx
+   ```jsx
    <Router basename="/react-vite-template/">
    ```
 6. Remove or update all `href` attributes in `index.html`:
