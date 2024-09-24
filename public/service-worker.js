@@ -6,9 +6,20 @@ self.addEventListener("message", (event) => {
     }
 });
 
-workbox.core.clientsClaim();
+self.addEventListener("activate", (event) => {
+    const currentCaches = ["pages", "assets", "images"];
+    event.waitUntil(
+        caches.keys().then((cacheNames) => {
+            return Promise.all(
+                cacheNames
+                    .filter((cacheName) => !currentCaches.includes(cacheName))
+                    .map((cacheName) => caches.delete(cacheName))
+            );
+        })
+    );
+});
 
-workbox.precaching.cleanupOutdatedCaches();
+workbox.core.clientsClaim();
 
 workbox.routing.registerRoute(
     ({ request }) => request.mode === "navigate",
