@@ -13,8 +13,9 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
 );
 
 if ("serviceWorker" in navigator) {
+    const publicUrl = import.meta.env.VITE_PUBLIC_URL;
     navigator.serviceWorker
-        .register(`${import.meta.env.VITE_PUBLIC_URL}/service-worker.js`, { type: "module" })
+        .register(`${publicUrl}/service-worker.js`, { scope: `${publicUrl}/` })
         .then((registration) => {
             console.log("Service Worker registered with scope:", registration.scope);
         })
