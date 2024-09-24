@@ -11,7 +11,7 @@ self.addEventListener("message", (event) => {
 workbox.core.clientsClaim();
 
 // Precaching assets
-workbox.precaching.precacheAndRoute(self.__WB_MANIFEST || []);
+workbox.precaching.precacheAndRoute([...self.__WB_MANIFEST]);
 
 // Cleanup outdated caches
 workbox.precaching.cleanupOutdatedCaches();
@@ -20,6 +20,7 @@ workbox.precaching.cleanupOutdatedCaches();
 workbox.routing.registerRoute(
     ({ request }) => request.mode === "navigate",
     new workbox.strategies.NetworkFirst({
+        cacheName: "pages",
         plugins: [
             new workbox.cacheableResponse.CacheableResponsePlugin({
                 statuses: [200],
@@ -33,6 +34,7 @@ workbox.routing.registerRoute(
     ({ request }) =>
         request.destination === "style" || request.destination === "script" || request.destination === "worker",
     new workbox.strategies.StaleWhileRevalidate({
+        cacheName: "assets",
         plugins: [
             new workbox.cacheableResponse.CacheableResponsePlugin({
                 statuses: [200],
@@ -45,6 +47,7 @@ workbox.routing.registerRoute(
 workbox.routing.registerRoute(
     ({ request }) => request.destination === "image",
     new workbox.strategies.CacheFirst({
+        cacheName: "images",
         plugins: [
             new workbox.cacheableResponse.CacheableResponsePlugin({
                 statuses: [200],
