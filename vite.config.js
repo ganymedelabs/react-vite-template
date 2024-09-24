@@ -14,6 +14,12 @@ export default defineConfig(() => {
         build: {
             outDir: "build",
             assetsDir: ".",
+            rollupOptions: {
+                output: {
+                    entryFileNames: "index.js",
+                    assetFileNames: "index.css",
+                },
+            },
         },
 
         plugins: [react(), eslint()],

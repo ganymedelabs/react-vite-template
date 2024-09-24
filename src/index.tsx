@@ -14,6 +14,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
 
 if ("serviceWorker" in navigator) {
     const publicUrl = import.meta.env.VITE_PUBLIC_URL;
+
     navigator.serviceWorker
         .register(`${publicUrl}/service-worker.js`, { scope: `${publicUrl}/` })
         .then((registration) => {
