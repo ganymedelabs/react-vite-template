@@ -24,7 +24,6 @@ This is a React template created with Vite and configured with TypeScript, Tailw
 -   [PWA Configuration](#pwa-configuration)
 -   [GitHub Pages Deployment](#github-pages-deployment)
 -   [Repository Configuration](#repository-configuration)
--   [Known Issues](#known-issues)
 -   [License](#license)
 
 ## Getting Started
@@ -84,16 +83,8 @@ This template uses TypeScript for static type-checking and ensuring type safety.
 >     ```
 > 5. Remove TypeScript references from the `"plugins"` and `"extends"` fields in the `.eslintrc` configuration:
 >     ```json
->     "plugins": ["react", "import", "jsx-a11y", "prettier", "@typescript-eslint"],
->     "extends": [
->         "eslint:recommended",
->         "plugin:react/recommended",
->         "plugin:@typescript-eslint/recommended",
->         "airbnb",
->         "plugin:import/errors",
->         "plugin:jsx-a11y/recommended",
->         "plugin:prettier/recommended"
->     ]
+>     "plugins": ["@typescript-eslint"],
+>     "extends": ["plugin:@typescript-eslint/recommended"]
 >     ```
 
 ## TailwindCSS Configuration
@@ -196,16 +187,8 @@ Prettier is used for code formatting. You can find the configuration in the `.pr
 >     ```
 > 4. Remove Prettier references from the `"plugins"` and `"extends"` fields in the `.eslintrc` configuration:
 >     ```json
->     "plugins": ["react", "import", "jsx-a11y", "prettier", "@typescript-eslint"],
->     "extends": [
->         "eslint:recommended",
->         "plugin:react/recommended",
->         "plugin:@typescript-eslint/recommended",
->         "airbnb",
->         "plugin:import/errors",
->         "plugin:jsx-a11y/recommended",
->         "plugin:prettier/recommended"
->     ]
+>     "plugins": ["prettier"],
+>     "extends": ["plugin:prettier/recommended"]
 >     ```
 
 ## Docker Configuration
@@ -235,10 +218,13 @@ This project is configured as a Progressive Web App using Workbox. The service w
 >
 > 1. Delete `service-worker.js`, `manifest.json`, `favicon.ico`, and the `public/images/favicons` folder.
 > 2. Remove the service worker registration code from `index.tsx`:
+>
 >     ```tsx
 >     if ("serviceWorker" in navigator) {
+>         const publicUrl = import.meta.env.VITE_PUBLIC_URL;
+>
 >         navigator.serviceWorker
->             .register(`${import.meta.env.VITE_PUBLIC_URL}/service-worker.js`, { type: "module" })
+>             .register(`${publicUrl}/service-worker.js`, { scope: `${publicUrl}/` })
 >             .then((registration) => {
 >                 console.log("Service Worker registered with scope:", registration.scope);
 >             })
@@ -247,11 +233,10 @@ This project is configured as a Progressive Web App using Workbox. The service w
 >             });
 >     }
 >     ```
+>
 > 3. Remove favicon link tags from `index.html`:
 >     ```html
 >     <link rel="apple-touch-icon" sizes="180x180" href="/react-vite-template/images/favicons/apple-touch-icon.png" />
->     <link rel="icon" type="image/png" sizes="32x32" href="/react-vite-template/images/favicons/favicon-32x32.png" />
->     <link rel="icon" type="image/png" sizes="16x16" href="/react-vite-template/images/favicons/favicon-16x16.png" />
 >     ```
 
 ## GitHub Pages Deployment
@@ -289,10 +274,10 @@ Unlike many GitHub Pages setups that require the use of `HashRouter` due to URL 
 >
 >     ```env
 >     # .env.development
->     VITE_PUBLIC_URL=http://localhost:3000/react-vite-template/
+>     VITE_PUBLIC_URL=http://localhost:3000/react-vite-template
 >
 >     # .env.production
->     VITE_PUBLIC_URL=https://discontinuedlabs.github.io/react-vite-template/
+>     VITE_PUBLIC_URL=https://discontinuedlabs.github.io/react-vite-template
 >     ```
 >
 > 5. Update the `Router` component's `basename` property in `index.tsx`:
@@ -303,8 +288,6 @@ Unlike many GitHub Pages setups that require the use of `HashRouter` due to URL 
 >     ```html
 >     <link rel="canonical" href="https://discontinuedlabs.github.io/react-vite-template/" />
 >     <link rel="apple-touch-icon" sizes="180x180" href="/react-vite-template/images/favicons/apple-touch-icon.png" />
->     <link rel="icon" type="image/png" sizes="32x32" href="/react-vite-template/images/favicons/favicon-32x32.png" />
->     <link rel="icon" type="image/png" sizes="16x16" href="/react-vite-template/images/favicons/favicon-16x16.png" />
 >     ```
 > 7. If your deployment platform supports `BrowserRouter` without special configuration, delete `404.html` and remove the "Single Page Apps for GitHub Pages" script from `index.html`:
 >     ```html
@@ -371,6 +354,7 @@ To make this template work for your repository, you need to update a few configu
     - Replace all instances of `"react-vite-template"` in `href` values to your repository name. If your GitHub Pages URL is `https://your-username.github.io/`, leave the `"react-vite-template"` string as `"/"`.
 
     ```html
+    <link rel="manifest" href="/your-repo-name/manifest.json" />
     <link rel="apple-touch-icon" sizes="180x180" href="/your-repo-name/images/favicons/apple-touch-icon.png" />
     ```
 
@@ -424,18 +408,6 @@ Additionally, while not required for the template to work, it's a good idea to c
     "url": "https://github.com/discontinuedlabs/react-vite-template/issues"
 }
 ```
-
-## Known Issues
-
-### Caching Issue with `index.css` in GitHub Pages Deployment
-
-There is a known issue with the caching of the `index.css` file when deploying the application to GitHub Pages. The problem arises because the `index.css` filename is constant and does not include a hash (e.g., `index-BKlr6yp3.css`), which prevents the browser from updating the file when new changes are deployed. As a result, users may see outdated styles unless they manually clear their browser cache.
-
--   **Why this happens**: By default, Vite adds a hash to static assets like `index.css` and `index.js` during each build. However, to avoid a `404` error in the app when deployed to GitHub Pages (due to service worker cache expecting the old file names), the names were set to be constant. The issue mainly affects `index.css` because it doesn't get updated in the browser without clearing the cache, although `index.js` behaves as expected.
-
--   **Temporary Solution**: Users will need to clear their browser cache manually to see the latest updates to the styles after a new deployment.
-
--   **Possible Future Solution**: This issue could potentially be resolved by reconfiguring the service worker to handle hashed filenames more effectively.
 
 ## License
 
