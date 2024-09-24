@@ -41,7 +41,6 @@ const cacheAndUpdate = async ({ request }) => {
 
             // Match files with the same base name but different hashes
             if (
-                cachedUrl.pathname.includes(fileNamePattern) && // Check if it matches the base filename
                 cachedUrl.href !== requestUrl.href // Check if it's a different hash
             ) {
                 await cache.delete(cacheKey);
