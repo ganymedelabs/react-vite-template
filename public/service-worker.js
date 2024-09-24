@@ -20,7 +20,6 @@ workbox.routing.registerRoute(
     })
 );
 
-// Custom handler to remove outdated cached assets and replace them with new ones
 const cacheAndUpdate = async ({ request }) => {
     const cache = await caches.open("assets");
     const cachedResponse = await cache.match(request);
@@ -30,14 +29,23 @@ const cacheAndUpdate = async ({ request }) => {
         // Store the new version in the cache
         await cache.put(request, networkResponse.clone());
 
-        if (cachedResponse) {
-            // Delete old cached version if the URL is different (hash has changed)
-            const cachedUrl = new URL(cachedResponse.url);
-            const requestUrl = new URL(request.url);
+        // Clean up old cache entries that match the filename pattern but have a different hash
+        const cacheKeys = await cache.keys();
+        const requestUrl = new URL(request.url);
+        const fileNamePattern = requestUrl.pathname.split("/").pop().split(".")[0]; // "index" in index-[hash].js
+        console.log({ cacheKeys, requestUrl, fileNamePattern });
 
-            if (cachedUrl.href !== requestUrl.href) {
-                await cache.delete(cachedResponse.url);
-                console.log(`Deleted outdated file from cache: ${cachedResponse.url}`);
+        for (const cacheKey of cacheKeys) {
+            const cachedUrl = new URL(cacheKey.url);
+            console.log({ cacheKey, cachedUrl });
+
+            // Match files with the same base name but different hashes
+            if (
+                cachedUrl.pathname.includes(fileNamePattern) && // Check if it matches the base filename
+                cachedUrl.href !== requestUrl.href // Check if it's a different hash
+            ) {
+                await cache.delete(cacheKey);
+                console.log(`Deleted outdated file from cache: ${cachedUrl.href}`);
             }
         }
 
