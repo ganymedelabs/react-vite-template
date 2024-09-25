@@ -1,10 +1,22 @@
+<!doctype html>
 <html>
     <head>
         <meta charset="utf-8" />
         <title>React Vite Template</title>
         <script type="text/javascript">
-            sessionStorage.redirect = location.href;
+            (function () {
+                var redirect = sessionStorage.redirect;
+                delete sessionStorage.redirect;
+                if (redirect) {
+                    history.replaceState(null, null, location.href);
+                }
+            })();
         </script>
+      <script type="module" crossorigin src="/react-vite-template/index-A1Db1hRN.js"></script>
+      <link rel="stylesheet" crossorigin href="/react-vite-template/index.css">
     </head>
-    <body></body>
+    <body>
+        <noscript>You need to enable JavaScript to run this app.</noscript>
+        <div id="root"></div>
+    </body>
 </html>
