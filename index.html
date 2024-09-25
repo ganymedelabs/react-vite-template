@@ -17,13 +17,33 @@
         <meta name="theme-color" content="#000000" />
 
         <script type="text/javascript">
-            (function () {
-                var redirect = sessionStorage.redirect;
-                delete sessionStorage.redirect;
-                if (redirect && redirect !== location.href) {
-                    history.replaceState(null, null, redirect);
+            /**
+             * Single Page Apps for GitHub Pages
+             * MIT License
+             * https://github.com/rafgraph/spa-github-pages
+             *
+             * This script handles redirects for single-page applications hosted on GitHub Pages.
+             * It checks for redirect information in the query string, decodes it into the correct URL,
+             * and updates the browser's history using window.history.replaceState(...) without causing
+             * the browser to reload the page. This ensures that when the single page app loads,
+             * the correct URL is available in the browser's history for proper routing.
+             */
+            (function (location) {
+                if (location.search[1] === "/") {
+                    var decodedUrl = location.search
+                        .slice(1)
+                        .split("&")
+                        .map(function (part) {
+                            return part.replace(/~and~/g, "&");
+                        })
+                        .join("?");
+                    window.history.replaceState(
+                        null,
+                        null,
+                        location.pathname.slice(0, -1) + decodedUrl + location.hash
+                    );
                 }
-            })();
+            })(window.location);
         </script>
     </head>
 

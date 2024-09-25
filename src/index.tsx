@@ -1,14 +1,31 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import { BrowserRouter as Router } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App.tsx";
+import NotFoundPage from "./pages/NotFoundPage.tsx";
+import Home from "./pages/Home.tsx";
+
+const router = createBrowserRouter([
+    {
+        path: "/react-vite-template/",
+        element: <App />,
+        children: [
+            {
+                path: "/react-vite-template/",
+                element: <Home />,
+            },
+            {
+                path: "/react-vite-template/*",
+                element: <NotFoundPage />,
+            },
+        ],
+    },
+]);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
     <React.StrictMode>
-        <Router basename="/react-vite-template/">
-            <App />
-        </Router>
+        <RouterProvider router={router} />
     </React.StrictMode>
 );
 
