@@ -284,7 +284,7 @@ Unlike many GitHub Pages setups that require the use of `HashRouter` due to URL 
 >     ```jsx
 >     <Router basename="/react-vite-template">
 >     ```
-> 6. Remove or update the `href` value of `<link rel="canonical" href="https://discontinuedlabs.github.io/react-vite-template/" />` in `index.html`.
+> 6. Remove or update the `href` value of `<link rel="canonical" href="https://discontinuedlabs.github.io/react-vite-template" />` in `index.html`.
 > 7. If your deployment platform supports `BrowserRouter` without special configuration, delete `404.html` and remove the "Single Page Apps for GitHub Pages" script from `index.html`:
 >     ```html
 >     <script type="text/javascript">
@@ -341,10 +341,10 @@ To make this template work for your repository, you need to update a few configu
 
 4. **index.html**
 
-    - Change the `href` value of `<link rel="canonical" href="https://discontinuedlabs.github.io/react-vite-template/" />` to the URL of your GitHub Pages.
+    - Change the `href` value of `<link rel="canonical" href="https://discontinuedlabs.github.io/react-vite-template" />` to the URL of your GitHub Pages.
 
     ```html
-    <link rel="canonical" href="https://your-username.github.io/your-repo-name/" />
+    <link rel="canonical" href="https://your-username.github.io/your-repo-name" />
     ```
 
 5. **public/manifest.json**
