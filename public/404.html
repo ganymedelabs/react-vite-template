@@ -4,18 +4,52 @@
         <meta charset="utf-8" />
         <title>React Vite Template</title>
         <script type="text/javascript">
-            (function () {
-                var redirect = sessionStorage.redirect;
-                delete sessionStorage.redirect;
-                if (redirect) {
-                    history.replaceState(null, null, location.href);
-                }
-            })();
+            /**
+             * Single Page Apps for GitHub Pages
+             * MIT License
+             * https://github.com/rafgraph/spa-github-pages
+             *
+             * This script transforms the current URL by converting the path and query string
+             * into a query string format and then redirects the browser to the new URL.
+             * This is done to ensure proper routing for single-page applications.
+             *
+             * Example:
+             * https://www.foo.tld/one/two?a=b&c=d#qwe
+             * becomes
+             * https://www.foo.tld/?/one/two&a=b~and~c=d#qwe
+             *
+             * Note: For this to work correctly in Internet Explorer, the 404.html file must
+             * be at least 512 bytes in size.
+             *
+             * Configuration:
+             * - For Project Pages without a custom domain, set `pathSegmentsToKeep` to 1.
+             *   This preserves the directory structure of the repo, e.g.,
+             *   https://username.github.io/repo-name/one/two?a=b&c=d#qwe
+             *   becomes
+             *   https://username.github.io/repo-name/?/one/two&a=b~and~c=d#qwe
+             * - For other cases, set `pathSegmentsToKeep` to 0.
+             */
+
+            var pathSegmentsToKeep = 0;
+
+            var location = window.location;
+
+            var newUrl =
+                location.protocol +
+                "//" +
+                location.hostname +
+                (location.port ? ":" + location.port : "") +
+                location.pathname
+                    .split("/")
+                    .slice(0, 1 + pathSegmentsToKeep)
+                    .join("/") +
+                "/?/" +
+                location.pathname.slice(1).split("/").slice(pathSegmentsToKeep).join("/").replace(/&/g, "~and~") +
+                (location.search ? "&" + location.search.slice(1).replace(/&/g, "~and~") : "") +
+                location.hash;
+
+            location.replace(newUrl);
         </script>
     </head>
-    <body>
-        <noscript>You need to enable JavaScript to run this app.</noscript>
-        <div id="root"></div>
-        <script type="module" src="/src/index.tsx"></script>
-    </body>
+    <body></body>
 </html>
