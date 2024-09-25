@@ -16,7 +16,6 @@ export default defineConfig(() => {
             outDir: "build",
             assetsDir: ".",
             rollupOptions: {
-                input: { main: resolve(__dirname, "index.html"), 404: resolve(__dirname, "public/404.html") },
                 output: {
                     entryFileNames: "index.js",
                     assetFileNames: "index.css",
