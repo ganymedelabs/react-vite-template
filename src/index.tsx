@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import { BrowserRouter as Router } from "react-router-dom";
 import App from "./App.tsx";
+import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
     <React.StrictMode>
@@ -12,15 +13,4 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     </React.StrictMode>
 );
 
-if ("serviceWorker" in navigator) {
-    const publicUrl = import.meta.env.VITE_PUBLIC_URL;
-
-    navigator.serviceWorker
-        .register(`${publicUrl}/service-worker.js`, { scope: `${publicUrl}/` })
-        .then((registration) => {
-            console.log("Service Worker registered with scope:", registration.scope);
-        })
-        .catch((error) => {
-            console.error("Service Worker registration failed:", error);
-        });
-}
+serviceWorkerRegistration.register();

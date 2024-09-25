@@ -216,22 +216,13 @@ This project is configured as a Progressive Web App using Workbox. The service w
 >
 > ### Removing PWA Support
 >
-> 1. Delete `service-worker.js`, `manifest.json`, `favicon.ico`, and the `public/images/favicons` folder.
+> 1. Delete `service-worker.js`, `serviceWorkerRegistration.js, `manifest.json`, `favicon.ico`, and the `public/images/favicons` folder.
 > 2. Remove the service worker registration code from `index.tsx`:
 >
 >     ```tsx
->     if ("serviceWorker" in navigator) {
->         const publicUrl = import.meta.env.VITE_PUBLIC_URL;
+>     import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 >
->         navigator.serviceWorker
->             .register(`${publicUrl}/service-worker.js`, { scope: `${publicUrl}/` })
->             .then((registration) => {
->                 console.log("Service Worker registered with scope:", registration.scope);
->             })
->             .catch((error) => {
->                 console.error("Service Worker registration failed:", error);
->             });
->     }
+>     serviceWorkerRegistration.register();
 >     ```
 >
 > 3. Remove favicon link tags from `index.html`:
