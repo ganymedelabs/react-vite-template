@@ -288,16 +288,16 @@ Unlike many GitHub Pages setups that require the use of `HashRouter` due to URL 
 > 7. If your deployment platform supports `BrowserRouter` without special configuration, delete `404.html` and remove the "Single Page Apps for GitHub Pages" script from `index.html`:
 >     ```html
 >     <script type="text/javascript">
->         (function (location) {
->             if (location.search[1] === "/") {
->                 var decodedUrl = location.search
+>         (function (l) {
+>             if (l.search[1] === "/") {
+>                 var decoded = l.search
 >                     .slice(1)
 >                     .split("&")
->                     .map(function (part) {
->                         return part.replace(/~and~/g, "&");
+>                     .map(function (s) {
+>                         return s.replace(/~and~/g, "&");
 >                     })
 >                     .join("?");
->                 window.history.replaceState(null, null, location.pathname.slice(0, -1) + decodedUrl + location.hash);
+>                 window.history.replaceState(null, null, l.pathname.slice(0, -1) + decoded + l.hash);
 >             }
 >         })(window.location);
 >     </script>

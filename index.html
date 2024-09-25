@@ -30,14 +30,14 @@
              */
             (function (l) {
                 if (l.search[1] === "/") {
-                    var decodedUrl = l.search
+                    var decoded = l.search
                         .slice(1)
                         .split("&")
-                        .map(function (part) {
-                            return part.replace(/~and~/g, "&");
+                        .map(function (s) {
+                            return s.replace(/~and~/g, "&");
                         })
                         .join("?");
-                    window.history.replaceState(null, null, l.pathname.slice(0, -1) + decodedUrl + l.hash);
+                    window.history.replaceState(null, null, l.pathname.slice(0, -1) + decoded + l.hash);
                 }
             })(window.location);
         </script>
