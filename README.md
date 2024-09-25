@@ -249,7 +249,7 @@ npm run deploy
 yarn deploy
 ```
 
-Unlike many GitHub Pages setups that require the use of `HashRouter` due to URL routing limitations, this template is compatible with `BrowserRouter` thanks to the configuration provided by [rafgraph's Single Page Apps for GitHub Pages](https://github.com/rafgraph/spa-github-pages). It uses a custom `404.html` file and a redirect script to handle URL routing correctly and avoid 404 errors on page reloads. Be sure to update the `homepage` field in `package.json` to match your repository URL.
+Unlike many GitHub Pages setups that require the use of `HashRouter` due to URL routing limitations, this template is compatible with `BrowserRouter` with some configuration. It uses a custom `404.html` file and a redirect script to handle URL routing correctly and avoid 404 errors on page reloads. Be sure to update the `homepage` field in `package.json` to match your repository URL.
 
 > [!CAUTION]
 >
@@ -285,7 +285,7 @@ Unlike many GitHub Pages setups that require the use of `HashRouter` due to URL 
 >     <Router basename="/react-vite-template/">
 >     ```
 > 6. Remove or update the `href` value of `<link rel="canonical" href="https://discontinuedlabs.github.io/react-vite-template/" />` in `index.html`.
-> 7. If your deployment platform supports `BrowserRouter` without special configuration, delete `404.html` and remove the "Single Page Apps for GitHub Pages" script from `index.html`:
+> 7. If your deployment platform supports `BrowserRouter` without special configuration, delete `404.html` and remove the "redirect" script from `index.html`:
 >     ```html
 >     <script type="text/javascript">
 >         (function () {
