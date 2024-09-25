@@ -57,6 +57,10 @@ This is a React template created with Vite and configured with TypeScript, Tailw
 npm run dev
 # or
 yarn dev
+
+# or if you prefer to run it inside a Docker container
+docker build -t react-vite-template .
+docker run -p 3000:3000 react-vite-template
 ```
 
 This will start the development server at `http://localhost:3000/react-vite-template/`.
