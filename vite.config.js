@@ -9,7 +9,7 @@ export default defineConfig(() => {
             port: 3000,
         },
 
-        base: "/react-vite-template/",
+        base: "/react-vite-template",
 
         build: {
             outDir: "build",
