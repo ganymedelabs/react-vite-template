@@ -196,9 +196,7 @@ Prettier is used for code formatting. You can find the configuration in the `.pr
 This project includes a `Dockerfile` for containerizing the application. The Dockerfile uses `node:18-alpine` as the base image. To build and run the Docker container, use the following commands:
 
 ```bash
-docker build -t react
-
--vite-template .
+docker build -t react-vite-template .
 docker run -p 3000:3000 react-vite-template
 ```
 
@@ -216,7 +214,7 @@ This project is configured as a Progressive Web App using Workbox. The service w
 >
 > ### Removing PWA Support
 >
-> 1. Delete `service-worker.js`, `serviceWorkerRegistration.js, `manifest.json`, `favicon.ico`, and the `public/images/favicons` folder.
+> 1. Delete `service-worker.js`, `serviceWorkerRegistration.js`, `manifest.json`, `favicon.ico`, and the `public/images/favicons` folder.
 > 2. Remove the service worker registration code from `index.tsx`:
 >
 >     ```tsx
