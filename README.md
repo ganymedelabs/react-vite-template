@@ -38,18 +38,18 @@ This is a React template created with Vite and configured with TypeScript, Tailw
 
 1. Clone the repository:
 
-```bash
-git clone https://github.com/discontinuedlabs/react-vite-template.git
-cd react-vite-template
-```
+    ```bash
+    git clone https://github.com/discontinuedlabs/react-vite-template.git
+    cd react-vite-template
+    ```
 
 2. Install dependencies:
 
-```bash
-npm install
-# or
-yarn install
-```
+    ```bash
+    npm install
+    # or
+    yarn install
+    ```
 
 ### Running the Development Server
 
