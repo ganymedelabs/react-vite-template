@@ -28,24 +28,14 @@
              * the browser to reload the page. This ensures that when the single page app loads,
              * the correct URL is available in the browser's history for proper routing.
              */
-            (function (location) {
-                // Check if the query string starts with a slash, indicating a redirect
-                if (location.search[1] === "/") {
-                    // Decode the query string by replacing '~and~' with '&'
-                    var decodedUrl = location.search
+            ((a) => {
+                if ("/" === a.search[1]) {
+                    const e = a.search
                         .slice(1)
                         .split("&")
-                        .map(function (part) {
-                            return part.replace(/~and~/g, "&");
-                        })
+                        .map((a) => a.replace(/~and~/g, "&"))
                         .join("?");
-
-                    // Update the browser history with the correct URL without reloading the page
-                    window.history.replaceState(
-                        null,
-                        null,
-                        location.pathname.slice(0, -1) + decodedUrl + location.hash
-                    );
+                    window.history.replaceState(null, null, a.pathname.slice(0, -1) + e + a.hash);
                 }
             })(window.location);
         </script>
