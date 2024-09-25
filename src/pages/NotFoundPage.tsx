@@ -14,7 +14,7 @@ export default function NotFoundPage(): React.JSX.Element {
                 />
                 <h1 className="text-center">Not Found!</h1>
                 <p className="text-center">
-                    Go back <Link to=".">home</Link>.
+                    Go back <Link to="/">home</Link>.
                 </p>
             </div>
         </div>

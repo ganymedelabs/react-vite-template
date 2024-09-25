@@ -59,7 +59,7 @@ npm run dev
 yarn dev
 ```
 
-This will start the development server at `http://localhost:3000`.
+This will start the development server at `http://localhost:3000/react-vite-template/`.
 
 ## TypeScript Configuration
 
@@ -268,7 +268,7 @@ Unlike many GitHub Pages setups that require the use of `HashRouter` due to URL 
 >     ```
 > 3. Adjust or remove the `base` property in `vite.config.js`:
 >     ```javascript
->     base: "/react-vite-template";
+>     base: "/react-vite-template/";
 >     ```
 > 4. Remove or modify the `VITE_PUBLIC_URL` in `.env.development` and `.env.production`:
 >
@@ -282,24 +282,19 @@ Unlike many GitHub Pages setups that require the use of `HashRouter` due to URL 
 >
 > 5. Update the `Router` component's `basename` property in `index.tsx`:
 >     ```jsx
->     <Router basename="/react-vite-template">
+>     <Router basename="/react-vite-template/">
 >     ```
-> 6. Remove or update the `href` value of `<link rel="canonical" href="https://discontinuedlabs.github.io/react-vite-template" />` in `index.html`.
+> 6. Remove or update the `href` value of `<link rel="canonical" href="https://discontinuedlabs.github.io/react-vite-template/" />` in `index.html`.
 > 7. If your deployment platform supports `BrowserRouter` without special configuration, delete `404.html` and remove the "Single Page Apps for GitHub Pages" script from `index.html`:
 >     ```html
 >     <script type="text/javascript">
->         (function (location) {
->             if (location.search.startsWith("/")) {
->                 var decodedUrl = location.search
->                     .slice(1)
->                     .split("&")
->                     .map(function (part) {
->                         return part.replace(/~and~/g, "&");
->                     })
->                     .join("?");
->                 window.history.replaceState(null, null, location.pathname.slice(0, -1) + decodedUrl + location.hash);
+>         (function () {
+>             var redirect = sessionStorage.redirect;
+>             delete sessionStorage.redirect;
+>             if (redirect && redirect !== location.href) {
+>                 history.replaceState(null, null, redirect);
 >             }
->         })(window.location);
+>         })();
 >     </script>
 >     ```
 
@@ -312,15 +307,15 @@ To make this template work for your repository, you need to update a few configu
     - Change the `base` value to the name of your repository.
 
     ```json
-    "base": "/your-repo-name"
+    "base": "/your-repo-name/"
     ```
 
 2. **src/index.tsx**
 
-    - Change the `basename` value of `<Router basename="/react-vite-template">` to the name of your repository.
+    - Change the `basename` value of `<Router basename="/react-vite-template/">` to the name of your repository.
 
     ```jsx
-    <Router basename="/your-repo-name">
+    <Router basename="/your-repo-name/">
     ```
 
 3. **.env.production and .env.development**
@@ -341,10 +336,10 @@ To make this template work for your repository, you need to update a few configu
 
 4. **index.html**
 
-    - Change the `href` value of `<link rel="canonical" href="https://discontinuedlabs.github.io/react-vite-template" />` to the URL of your GitHub Pages.
+    - Change the `href` value of `<link rel="canonical" href="https://discontinuedlabs.github.io/react-vite-template/" />` to the URL of your GitHub Pages.
 
     ```html
-    <link rel="canonical" href="https://your-username.github.io/your-repo-name" />
+    <link rel="canonical" href="https://your-username.github.io/your-repo-name/" />
     ```
 
 5. **public/manifest.json**
