@@ -39,7 +39,7 @@ This is a React template created with Vite and configured with TypeScript, Tailw
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/react-vite-template.git
+git clone https://github.com/discontinuedlabs/react-vite-template.git
 cd react-vite-template
 ```
 
@@ -236,7 +236,7 @@ This project is configured as a Progressive Web App using Workbox. The service w
 >
 > 3. Remove favicon link tags from `index.html`:
 >     ```html
->     <link rel="apple-touch-icon" sizes="180x180" href="/react-vite-template/images/favicons/apple-touch-icon.png" />
+>     <link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/apple-touch-icon.png" />
 >     ```
 
 ## GitHub Pages Deployment
@@ -284,11 +284,7 @@ Unlike many GitHub Pages setups that require the use of `HashRouter` due to URL 
 >     ```jsx
 >     <Router basename="/react-vite-template/">
 >     ```
-> 6. Remove or update all `href` attributes in `index.html`:
->     ```html
->     <link rel="canonical" href="https://discontinuedlabs.github.io/react-vite-template/" />
->     <link rel="apple-touch-icon" sizes="180x180" href="/react-vite-template/images/favicons/apple-touch-icon.png" />
->     ```
+> 6. Remove or update the `href` value of `<link rel="canonical" href="https://discontinuedlabs.github.io/react-vite-template/" />` in `index.html`.
 > 7. If your deployment platform supports `BrowserRouter` without special configuration, delete `404.html` and remove the "Single Page Apps for GitHub Pages" script from `index.html`:
 >     ```html
 >     <script type="text/javascript">
@@ -349,13 +345,6 @@ To make this template work for your repository, you need to update a few configu
 
     ```html
     <link rel="canonical" href="https://your-username.github.io/your-repo-name/" />
-    ```
-
-    - Replace all instances of `"react-vite-template"` in `href` values to your repository name. If your GitHub Pages URL is `https://your-username.github.io/`, leave the `"react-vite-template"` string as `"/"`.
-
-    ```html
-    <link rel="manifest" href="/your-repo-name/manifest.json" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/your-repo-name/images/favicons/apple-touch-icon.png" />
     ```
 
 5. **public/manifest.json**
