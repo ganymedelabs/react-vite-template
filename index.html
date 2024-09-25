@@ -28,16 +28,20 @@
              * the browser to reload the page. This ensures that when the single page app loads,
              * the correct URL is available in the browser's history for proper routing.
              */
-            (function (l) {
-                if (l.search[1] === "/") {
-                    var decoded = l.search
+            (function (location) {
+                if (location.search[1] === "/") {
+                    var decodedUrl = location.search
                         .slice(1)
                         .split("&")
-                        .map(function (s) {
-                            return s.replace(/~and~/g, "&");
+                        .map(function (part) {
+                            return part.replace(/~and~/g, "&");
                         })
                         .join("?");
-                    window.history.replaceState(null, null, l.pathname.slice(0, -1) + decoded + l.hash);
+                    window.history.replaceState(
+                        null,
+                        null,
+                        location.pathname.slice(0, -1) + decodedUrl + location.hash
+                    );
                 }
             })(window.location);
         </script>
