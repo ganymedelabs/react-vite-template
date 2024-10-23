@@ -1,7 +1,7 @@
 {
     "short_name": "React Vite Template",
     "name": "React Vite Template",
-    "description": "This is a React template created with Vite and configured with TypeScript, TailwindCSS, ESLint, Prettier, Docker, and PWA support using Workbox. It is ready to be deployed on GitHub Pages and is compatible with BrowserRouter, allowing seamless URL routing.",
+    "description": "A React template built with Vite, featuring TypeScript, TailwindCSS, ESLint, Prettier, Docker, PWA (Workbox), and GitHub Pages deployment configured to support BrowserRouter.",
     "icons": [
         {
             "src": "/react-vite-template/favicon.ico",
