@@ -24,5 +24,11 @@ export default defineConfig(() => {
         },
 
         plugins: [react(), eslint()],
+
+        test: {
+            globals: true,
+            environment: "jsdom",
+            css: true,
+        },
     };
 });

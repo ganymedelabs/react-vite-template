@@ -126,6 +126,7 @@ This project uses the following ESLint configurations:
 
 -   `eslint:recommended`
 -   `plugin:react/recommended`
+-   `plugin:react-hooks/recommended`
 -   `plugin:@typescript-eslint/recommended`
 -   `airbnb`
 -   `plugin:import/errors`
