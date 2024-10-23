@@ -6,8 +6,8 @@
 ![TypeScript version](https://img.shields.io/badge/TypeScript-5.5.3-3178C6?logo=typescript&logoColor=white)
 ![ESLint version](https://img.shields.io/badge/ESLint-8.57.0-4B32C3?logo=eslint&logoColor=white)
 ![Prettier version](https://img.shields.io/badge/Prettier-3.3.2-F7B93E?logo=prettier&logoColor=white)
-![PWA Support](https://img.shields.io/badge/PWA-Support-4FC08D?logo=pwa&logoColor=white)
-![Docker](https://img.shields.io/badge/Docker-Available-2496ED?logo=docker&logoColor=white)
+![PWA Support](https://img.shields.io/badge/PWA-support-4FC08D?logo=pwa&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-available-2496ED?logo=docker&logoColor=white)
 ![GitHub Pages](https://img.shields.io/github/deployments/discontinuedlabs/react-vite-template/github-pages?label=GitHub%20Pages&color=brightgreen&logo=github&logoColor=white)
 ![BrowserRouter](https://img.shields.io/badge/Router-BrowserRouter-CA4245?logo=reactrouter&logoColor=white)
 
@@ -15,18 +15,18 @@ This is a React template created with Vite and configured with TypeScript, Tailw
 
 ## Table of Contents
 
--   [Getting Started](#getting-started)
--   [TypeScript Configuration](#typescript-configuration)
--   [TailwindCSS Configuration](#tailwindcss-configuration)
--   [ESLint Configuration](#eslint-configuration)
--   [Prettier Configuration](#prettier-configuration)
--   [Docker Configuration](#docker-configuration)
--   [PWA Configuration](#pwa-configuration)
--   [GitHub Pages Deployment](#github-pages-deployment)
--   [Repository Configuration](#repository-configuration)
--   [License](#license)
+-   [Getting Started](#-getting-started)
+-   [TypeScript Configuration](#-typescript-configuration)
+-   [TailwindCSS Configuration](#-tailwindcss-configuration)
+-   [ESLint Configuration](#-eslint-configuration)
+-   [Prettier Configuration](#-prettier-configuration)
+-   [Docker Configuration](#-docker-configuration)
+-   [PWA Configuration](#-pwa-configuration)
+-   [GitHub Pages Deployment](#-github-pages-deployment)
+-   [Repository Configuration](#-repository-configuration)
+-   [License](#-license)
 
-## Getting Started
+## 🚀 Getting Started
 
 ### Prerequisites
 
@@ -38,30 +38,34 @@ This is a React template created with Vite and configured with TypeScript, Tailw
 
 1. Clone the repository:
 
-```bash
-git clone https://github.com/discontinuedlabs/react-vite-template.git
-cd react-vite-template
-```
+    ```bash
+    git clone https://github.com/discontinuedlabs/react-vite-template.git
+    cd react-vite-template
+    ```
 
 2. Install dependencies:
 
-```bash
-npm install
-# or
-yarn install
-```
+    ```bash
+    npm install
+    # or
+    yarn install
+    ```
 
 ### Running the Development Server
 
 ```bash
-npm run dev
+npm start
 # or
-yarn dev
+yarn start
+
+# or if you prefer to run it inside a Docker container
+docker build -t react-vite-template .
+docker run -p 3000:3000 react-vite-template
 ```
 
 This will start the development server at `http://localhost:3000/react-vite-template/`.
 
-## TypeScript Configuration
+## 📘 TypeScript Configuration
 
 This template uses TypeScript for static type-checking and ensuring type safety. You can find the configuration in the `tsconfig.json` file.
 
@@ -87,7 +91,7 @@ This template uses TypeScript for static type-checking and ensuring type safety.
 >     "extends": ["plugin:@typescript-eslint/recommended"]
 >     ```
 
-## TailwindCSS Configuration
+## 🎨 TailwindCSS Configuration
 
 TailwindCSS is used for utility-first styling. It is configured with Just-in-Time (JIT) mode for optimized builds. You can find the configuration in the `tailwind.config.js` file.
 
@@ -120,7 +124,7 @@ TailwindCSS is used for utility-first styling. It is configured with Just-in-Tim
 >     ```
 > 5. Update your JSX components to use standard CSS classes.
 
-## ESLint Configuration
+## 🔍 ESLint Configuration
 
 This project uses the following ESLint configurations:
 
@@ -167,7 +171,7 @@ You can find the ESLint configuration in the `.eslintrc` file.
 >     }));
 >     ```
 
-## Prettier Configuration
+## ✨ Prettier Configuration
 
 Prettier is used for code formatting. You can find the configuration in the `.prettierrc` file.
 
@@ -192,14 +196,12 @@ Prettier is used for code formatting. You can find the configuration in the `.pr
 >     "extends": ["plugin:prettier/recommended"]
 >     ```
 
-## Docker Configuration
+## 🐳 Docker Configuration
 
 This project includes a `Dockerfile` for containerizing the application. The Dockerfile uses `node:18-alpine` as the base image. To build and run the Docker container, use the following commands:
 
 ```bash
-docker build -t react
-
--vite-template .
+docker build -t react-vite-template .
 docker run -p 3000:3000 react-vite-template
 ```
 
@@ -209,7 +211,7 @@ docker run -p 3000:3000 react-vite-template
 >
 > 1. Delete the `Dockerfile` and `.dockerignore` files.
 
-## PWA Configuration
+## 📱 PWA Configuration
 
 This project is configured as a Progressive Web App using Workbox. The service worker is generated during the build process.
 
@@ -217,7 +219,7 @@ This project is configured as a Progressive Web App using Workbox. The service w
 >
 > ### Removing PWA Support
 >
-> 1. Delete `service-worker.js`, `serviceWorkerRegistration.js, `manifest.json`, `favicon.ico`, and the `public/images/favicons` folder.
+> 1. Delete `service-worker.js`, `serviceWorkerRegistration.js`, `manifest.json`, `favicon.ico`, and the `public/images/favicons` folder.
 > 2. Remove the service worker registration code from `index.tsx`:
 >
 >     ```tsx
@@ -231,7 +233,7 @@ This project is configured as a Progressive Web App using Workbox. The service w
 >     <link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/apple-touch-icon.png" />
 >     ```
 
-## GitHub Pages Deployment
+## 🌐 GitHub Pages Deployment
 
 This project is configured to be deployed to GitHub Pages. To deploy, run:
 
@@ -295,7 +297,7 @@ Unlike many GitHub Pages setups that require the use of `HashRouter` due to URL 
 >     </script>
 >     ```
 
-## Repository Configuration
+## 🔧 Repository Configuration
 
 To make this template work for your repository, you need to update a few configuration files:
 
@@ -390,6 +392,6 @@ Additionally, while not required for the template to work, it's a good idea to c
 }
 ```
 
-## License
+## 📜 License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
