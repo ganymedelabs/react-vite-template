@@ -1,14 +1,14 @@
 {
-    "homepage": "https://discontinuedlabs.github.io/react-vite-template/",
+    "homepage": "https://ganymedelabs.github.io/react-vite-template/",
     "name": "react-vite-template",
-    "author": "discontinuedlabs",
+    "author": "ganymedelabs",
     "description": "A React template built with Vite, featuring TypeScript, TailwindCSS, ESLint, Prettier, Docker, PWA (Workbox), and GitHub Pages deployment configured to support BrowserRouter.",
     "license": "MIT",
     "version": "1.0.0",
     "private": true,
     "repository": {
         "type": "git",
-        "url": "https://github.com/discontinuedlabs/react-vite-template.git"
+        "url": "https://github.com/ganymedelabs/react-vite-template.git"
     },
     "keywords": [
         "PWA",
@@ -27,7 +27,7 @@
         "Template"
     ],
     "bugs": {
-        "url": "https://github.com/discontinuedlabs/react-vite-template/issues"
+        "url": "https://github.com/ganymedelabs/react-vite-template/issues"
     },
     "dependencies": {
         "react-router-dom": "^6.21.1"

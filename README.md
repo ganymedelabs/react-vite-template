@@ -8,7 +8,7 @@
 ![Prettier version](https://img.shields.io/badge/Prettier-3.3.2-F7B93E?logo=prettier&logoColor=white)
 ![PWA Support](https://img.shields.io/badge/PWA-support-4FC08D?logo=pwa&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-available-2496ED?logo=docker&logoColor=white)
-![GitHub Pages](https://img.shields.io/github/deployments/discontinuedlabs/react-vite-template/github-pages?label=GitHub%20Pages&color=brightgreen&logo=github&logoColor=white)
+![GitHub Pages](https://img.shields.io/github/deployments/ganymedelabs/react-vite-template/github-pages?label=GitHub%20Pages&color=brightgreen&logo=github&logoColor=white)
 ![BrowserRouter](https://img.shields.io/badge/Router-BrowserRouter-CA4245?logo=reactrouter&logoColor=white)
 
 This is a React template created with Vite and configured with TypeScript, TailwindCSS, ESLint, Prettier, Docker, and PWA support using Workbox. It is ready to be deployed on GitHub Pages and is compatible with BrowserRouter, allowing seamless URL routing.
@@ -39,7 +39,7 @@ This is a React template created with Vite and configured with TypeScript, Tailw
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/discontinuedlabs/react-vite-template.git
+    git clone https://github.com/ganymedelabs/react-vite-template.git
     cd react-vite-template
     ```
 
@@ -271,14 +271,14 @@ Unlike many GitHub Pages setups that require the use of `HashRouter` due to URL 
 >     VITE_PUBLIC_URL=http://localhost:3000/react-vite-template
 >
 >     # .env.production
->     VITE_PUBLIC_URL=https://discontinuedlabs.github.io/react-vite-template
+>     VITE_PUBLIC_URL=https://ganymedelabs.github.io/react-vite-template
 >     ```
 >
 > 5. Update the `Router` component's `basename` property in `index.tsx`:
 >     ```jsx
 >     <Router basename="/react-vite-template/">
 >     ```
-> 6. Remove or update the `href` value of `<link rel="canonical" href="https://discontinuedlabs.github.io/react-vite-template/" />` in `index.html`.
+> 6. Remove or update the `href` value of `<link rel="canonical" href="https://ganymedelabs.github.io/react-vite-template/" />` in `index.html`.
 > 7. If your deployment platform supports `BrowserRouter` without special configuration, delete `404.html` and remove the "Single Page Apps for GitHub Pages" script from `index.html`:
 >     ```html
 >     <script type="text/javascript">
@@ -335,7 +335,7 @@ To make this template work for your repository, you need to update a few configu
 
 4. **index.html**
 
-    - Change the `href` value of `<link rel="canonical" href="https://discontinuedlabs.github.io/react-vite-template/" />` to the URL of your GitHub Pages.
+    - Change the `href` value of `<link rel="canonical" href="https://ganymedelabs.github.io/react-vite-template/" />` to the URL of your GitHub Pages.
 
     ```html
     <link rel="canonical" href="https://your-username.github.io/your-repo-name/" />
@@ -360,16 +360,16 @@ To make this template work for your repository, you need to update a few configu
 Additionally, while not required for the template to work, it's a good idea to change the following parts in the `package.json` as needed:
 
 ```json
-"home-page": "https://discontinuedlabs.github.io/react-vite-template/",
+"home-page": "https://ganymedelabs.github.io/react-vite-template/",
 "name": "react-vite-template",
-"author": "discontinuedlabs",
+"author": "ganymedelabs",
 "description": "This is a React template created with Vite and configured with TypeScript, TailwindCSS, ESLint, Prettier, Docker, and PWA support using Workbox. It is ready to be deployed on GitHub Pages and is set up to enforce code quality and styling guidelines.",
 "license": "MIT",
 "version": "1.0.0",
 "private": true,
 "repository": {
     "type": "git",
-    "url": "https://github.com/discontinuedlabs/react-vite-template.git"
+    "url": "https://github.com/ganymedelabs/react-vite-template.git"
 },
 "keywords": [
     "PWA",
@@ -388,7 +388,7 @@ Additionally, while not required for the template to work, it's a good idea to c
     "Template"
 ],
 "bugs": {
-    "url": "https://github.com/discontinuedlabs/react-vite-template/issues"
+    "url": "https://github.com/ganymedelabs/react-vite-template/issues"
 }
 ```
 
