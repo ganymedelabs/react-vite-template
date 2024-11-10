@@ -31,7 +31,7 @@ export default function Home() {
         return () => {
             window.removeEventListener("keydown", handleSpacebarPress);
         };
-    }, []);
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     const imageStyle: React.CSSProperties = {
         transform: `rotate(${rotation}deg)`,
@@ -51,7 +51,7 @@ export default function Home() {
         return () => {
             document.head.removeChild(styleElement);
         };
-    }, [rotation]);
+    }, [rotation]); // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
         <div className="relative flex h-screen items-center justify-center font-sans">
